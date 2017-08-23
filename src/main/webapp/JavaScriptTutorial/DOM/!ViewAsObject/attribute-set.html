@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p id="p1">This is a paragraph</p>
+    </body>
+<script>
+    
+    var p1 = document.getElementById('p1');
+
+    //Creating attribute as a NODE
+    var att = document.createAttribute("id");
+    att.value = "As A Node";
+    p1.setAttributeNode(att);  
+
+    var attr = p1.getAttributeNode("id");    
+    document.write('<br/><br/>p.id - nodeName -> '+attr.nodeName);
+    document.write('<br/>p.id - nodeValue -> '+attr.nodeValue);
+    document.write('<br/>p.id - nodeType -> '+attr.nodeType);
+
+    //Setting attribute property
+    p1.id = 'abc';
+    document.write('<br/><br/>Setting attribute property, p1.id = \'abc\'; -> '+p1.id);
+
+    //Using setAttribute()
+    p1.setAttribute('style', 'color: red;');
+    document.write('<br/><br/>Using setAttribute() -> p1.setAttribute(\'style\', \'color: red;\'), p1.style -> '+p1.style);
+    
+    document.write(); 
+    
+    document.write('<br/><br/>After');
+</script>
+
+</html>

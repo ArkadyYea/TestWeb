@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //Without 'this' to access the properties of an object we would have to use object name!
+    //  
+    
+    var y = 'global variable';
+
+    var obj = {
+    	x: 'object property',
+        m: function(){
+            var x = 'local variable' 
+            var z = function() { return 'local function z'; }
+            
+            document.write('<br/>"this" is the "name" of the object we are currently working with<br/>&emsp;this.x -> '+this.x);
+            document.write('<br/>otherwise we would have to use object\'s name<br/>&emsp;obj.x -> '+obj.x);
+            
+            document.write('<br/><br/>Without "this" we access local variables');
+            document.write('<br/>var x -> '+x);
+            document.write('<br/>z -> '+z());
+
+            document.write('<br/><br/>or global variables');
+            document.write('<br/>y -> '+y);
+        }
+    }
+    obj.m();  
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

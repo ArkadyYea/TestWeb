@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+<script>
+
+    var ob = {a:1, b:2};
+    ob.c = 3;
+    Object.defineProperty(ob, 'd', {
+        value: 4,
+        enumerable: false
+    });
+ 
+    document.write('<br/>ob.d: '+ob.d);                                                   // => 4
+    document.write('<br/>for( var key in ob ) document.write( ob[key]+", "); -> ');
+    for( var key in ob ) document.write( ob[key]+', ' );                            //Will print out: 1, 2, 3
+    document.write('<br/>Object.keys( ob ): '+Object.keys( ob ));                   // => ["a", "b", "c"]
+    document.write('<br/>JSON.stringify( ob ): '+JSON.stringify( ob ));             // => "{a:1,b:2,c:3}"
+
+    //returns an array with all the names, in case that you need to know all properties in an object, enumerable and non-enumerable ones,
+    document.write('<br/><br/>Object.getOwnPropertyNames() - returns an array with ALL the names -> '+Object.getOwnPropertyNames(ob));              
+
+    
+    //Since this kind of properties are not serialized, I found them really useful when handling data model objects.
+    //I can add handy information to them using non enumerable properties. 
+    // Imagine the model that represent a car, it has a reference to its owner using owner's id in the owner attribute
+    var car = { id: 123, color: 'red', owner: 12 };
+     
+    // I also have fetched the owner from the DB Of course, the car is mine :)
+    var owner = { id: 12, name: 'Javi' }
+     
+    // I can add the owner data to the car model with a non-enumerable property, maybe it can be useful in the future
+    Object.defineProperty( car, 'ownerOb', {value: owner} );
+    car.ownerOb; // => {id:12, name:Javi}       // I need the owner data now
+    var myCar = JSON.stringify( car );          // => '{id: 123, color: "red", owner: 12}'   // But if I serialize the car object, I can't see me
+    
+    document.write('<br/><br/>Since non-enumereable properties are not serialized, we can use them to hide some info (no ownerOb): '+myCar);
+    
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

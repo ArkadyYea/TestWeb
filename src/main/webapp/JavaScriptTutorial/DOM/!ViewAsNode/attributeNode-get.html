@@ -1,0 +1,26 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body id="b">
+        <p id="p1">This is a paragraph</p>
+    </body>
+<script>
+    
+    var p1 = document.getElementById('p1');
+    var attr = p1.getAttributeNode("id");
+    
+    document.write('<br/><br/>p - nodeName -> '+p1.nodeName);
+    document.write('<br/>p - nodeValue -> '+p1.nodeValue);
+    document.write('<br/>p - nodeType -> '+p1.nodeType);
+    document.write('<br/><br/>p.id - nodeName -> '+attr.nodeName);
+    document.write('<br/>p.id - nodeValue -> '+attr.nodeValue);
+    document.write('<br/>p.id - nodeType -> '+attr.nodeType);
+    document.write(); 
+    
+    document.write('<br/><br/>After');
+</script>
+
+</html>

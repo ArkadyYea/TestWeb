@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AngularJS AJAX example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" >
+
+    <div ng-controller="myCtrl">
+
+        <p>Response from JAX-RS is:</p>
+        <p>Data: {{respFromServ}}</p>
+        <p>Config: {{config}}</p>
+        <p>Status: {{status}}</p>
+        <p>StatusText: {{statusText}}</p>
+        <p>Headers: {{headers}}</p>
+    </div>
+
+    <div ng-controller="myCtrl2">
+        <br/>
+        <p>Data2: {{respFromServ2}}</p>
+        <p>Config2: {{config2}}</p>
+    </div>
+
+    <div ng-controller="myCtrl3">
+        <input id="clickMe1" type="button" value="clickme" onclick="doFunction();" />
+        <p id="p1"></p>
+        <input id="clickMe2" type="button" value="clickme" onclick="document.getElementById('i1').value = 'abc';" />
+        <input id="i1" value="nothing"></input>
+        
+    </div>
+    
+    
+    
+</body>
+
+    <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $http) {
+        $http.get("http://www.w3schools.com/angular/customers.php")
+        /* $http.get("http://localhost:8080/TestWeb/res/test") */
+        .then(function(response) {
+        	//First function handles success
+            $scope.respFromServ = response.data.records;    //records - nazwa obj JSON
+            /* $scope.respFromServ = response.data; */
+            $scope.status = response.status;
+            $scope.statusText = response.statusText
+            $scope.config = response.config
+            $scope.headers = response.headers
+        }, function(response) {
+            //Second function handles error
+            $scope.content = "Something went wrong";
+        });
+        
+    });
+
+    app.controller('myCtrl2', function($scope, $http) {
+        $http.get("http://localhost:8080/TestWeb/res/test")
+        .then(function(response) {
+            $scope.respFromServ2 = response.data
+            $scope.config2 = response.config
+        });
+    });
+
+    
+    function doFunction() {
+        document.getElementById("p1").innerHTML = "abc";
+    }
+
+    function doData(data) {
+        document.write(data);
+    }
+    
+    </script>
+ 
+
+

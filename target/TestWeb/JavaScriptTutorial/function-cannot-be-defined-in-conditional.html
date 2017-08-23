@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //All inner functions declarations are created at the ExecutionContext step. So an unreachable function declaration will be always created. For example:
+
+    function foo() {
+    	document.write('<br/>foo called');
+        if (false) {
+            function bar() { document.write('<br/>bar called'); }
+        }
+        bar();      //NOT working
+    }
+    foo();
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

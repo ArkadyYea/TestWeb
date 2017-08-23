@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+<script>
+    
+    //Once you have defined the property as non-configurable, there is only one behaviour you can change:
+    //If the property is writable, you can convert it to non-writable.
+    
+    var ob = {};
+    Object.defineProperty( ob, 'a', {value : 123, configurable:false, writable:true} );
+
+    Object.defineProperty(ob, 'a', { writable: false }); // This is allowed!! 
+    //Object.defineProperty(ob, 'a', { enumerable: true }); // throws a TypeError
+    //Object.defineProperty(ob, 'a', { value: 12 }); // throws a TypeError
+    //Object.defineProperty(ob, 'a', { writable: true }); // throws a TypeError
+    document.write('<br/>Once you have defined the property as non-configurable, there is only one behaviour you can change:<br/> If the property is writable, you can convert it to non-writable. ob.a -> '+ob.a);
+
+    //An important thing to know about the non-configurable properties is that they can’t be removed from the object using the operator delete.
+    //So if you create a property non-configurable and non-writable you have a frozen property. 
+    
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

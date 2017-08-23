@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //
+    var a = 'global a'; 
+    var obj = {
+    	a : 'a',
+    	b : function() {
+            document.write('<br/>a = '+this.a);             
+        },
+        fun : function() {
+            setTimeout(this.b, 100)
+        }
+    
+    }
+    
+    //obj.fun();
+
+
+    
+    var b = { 3: '3' };
+    document.write('<br/>3 -> '+b[3]);
+    document.write('<br/>3 -> '+b['3']);
+
+
+
+    
+    var bar = {};
+
+    function foo() {
+
+        bar.a = 'Set from foo()';
+
+        return function inner() {
+            alert(bar.a);
+        }
+
+    }
+
+    foo()(); // 'Set from foo()'
+
+
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

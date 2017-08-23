@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //JavaScript functions have properties and methods.
+    //call() and apply() are predefined JavaScript function methods.
+    //Both methods can be used to invoke a function, and both methods must have the owner object as first parameter. 
+    //With call() or apply() you can set the value of this, and invoke a function as a new method of an existing object. 
+    //call() takes the function arguments separately, and apply() takes the function arguments in an array.
+    document.write('Before<br/>');
+
+    var myObj = {
+        thisFromMyObject : 6
+    };
+    
+    function multiply(num) {
+        return this.thisFromMyObject * num;
+    }
+    
+    document.write('call: '+multiply.call(myObj, 6)); //We set myObj as this, use myObj.thisFromObject property * num lacal var. 
+    document.write('<br/>apply: '+multiply.call(myObj, [7]));   //call() takes the function args separately, and apply() takes the function args in an array.
+    
+    document.write('<br/>After<br/>');
+</script>
+
+
+</html>

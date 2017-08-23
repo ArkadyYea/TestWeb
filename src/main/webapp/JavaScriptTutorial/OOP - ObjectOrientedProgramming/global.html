@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //Visible to everybody (after function execution / creating object)
+    
+    function Test() {
+        this.name = 'name';
+    	gloVar = 'global';  //Variable (global) – visible to everybody (after function execution / creating object)
+        globalFun = function() { return 'globalFun() called'; }
+    }
+
+    var t = new Test();
+    //Test();
+    
+    document.write('<br/>-Visible to everybody (after function execution / creating object)');
+    document.write('<br/>&emsp; gloVar -> '+gloVar);
+    document.write('<br/>&emsp; globalFun() -> '+globalFun());
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

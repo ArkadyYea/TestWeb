@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body onload="checkIt();">
+    </body>
+    
+<script>
+    //http://stackoverflow.com/questions/11857982/assigning-this-to-a-variable-in-javascript
+    //Store the value of this in a local variable before calling func1() with something like var self = this so you can refer to self
+    //inside func1() via the closure. This is done quite commonly in JS (takes advantage of how closures allow access to parent scope variables). 
+    
+    function User(name, surname) {
+    	this.name = name;
+    	this.surname = surname;
+    	this.localFun = function() {
+    		document.write('<br/>This is local function from User obj, constructor: '+this.constructor.name);
+        }
+    	globalFun = function() {
+            document.write('<br/><br/>Declaring w/o this (like variable w/o var) function is global, constructor: '+this.constructor.name);
+        }
+    	
+    	var userThis = this;
+    	globalFunWithClosue = function() {
+            document.write('<br/><br/>----- We are storing this in a local variable and using it as a closure to run it later: '+userThis.constructor.name);
+        }
+    }
+
+    var u1 = new User('John','Smith');
+    u1.localFun();
+
+    globalFun();
+
+    globalFunWithClosue();
+    
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

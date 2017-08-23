@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //when we declare a function, JavaScript actually creates an object for you in the background.
+    //The name of the object is the function name itself.  The type of the object is function. 
+    //We can print the content of the object and it will output the actual code of the function
+    
+    function Ball() {       
+    	this.i=1;
+    }                                                       // it may seem odd, but this declaration creates a object named Ball
+    document.write('<br/>typeof Ball -> '+typeof Ball);     // produces "function"
+    
+    document.write('<br/><br/>We can print the content of the object and it will output the actual code of the function -> ' +Ball);   // produces content of Ball 
+
+    //Since the act of declaring a function creates an object, we can add properties it. (like static fields)
+    Ball.newProp = 'This is Ball function';
+    document.write('<br/><br/>We can print the content of the object and it will output the actual code of the function, Ball.newProp -> ' +Ball.newProp);   // produces content of Ball
+
+
+
+        
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

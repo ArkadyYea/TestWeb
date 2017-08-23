@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+    //JavaScript Version:   1.6
+    //map() method creates a NEW ARRAY with the results of calling a function for every array element.
+    //The map() method calls the provided function once for each element in an array, in order.
+    //Note: map() does not execute the function for array elements without values.
+    //Note: map() does not change the original array.
+    //array.map(function(currentValue,index,arr), thisValue)
+
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+    document.write('<br/>cars -> '+cars);
+    
+    var newCars = cars.map(check);
+    document.write('<br/>cars.map(check) -> '+newCars);
+
+    function check(item, index) {
+        return index+'-'+item;
+    }
+
+    document.write('<br/><br/>After');
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="d1" ondblclick="alert('Event via Attribute')" style="width: 100; height: 50; border: 1px solid; background-color: red; padding: 5px" >Click me!</div>
+        <p id="p1"></p>
+    </body>
+
+<script>
+    //EventTarget is exteneded by Node
+    //EventTarget is an interface implemented by objects that can receive events and may have listeners for them.
+    //Element, document, and window are the most common event targets, but other objects can be event targets too, fe XMLHttpRequest, AudioNode, AudioContext, and others.
+    //Many event targets (including elements, documents, and windows) also support setting event handlers via on... properties and attributes.
+    //Methods:
+    //EventTarget.addEventListener()        Register an event handler of a specific event type on the EventTarget.
+    //EventTarget.removeEventListener()     Removes an event listener from the EventTarget.
+    //EventTarget.dispatchEvent()           Dispatch an event to this EventTarget. 
+    document.write('<br/>');
+    
+    var d1 = document.getElementById('d1');
+    var p1 = document.getElementById('p1');
+
+    d1.onclick = function() {                       //event via onEventType property
+        p1.innerHTML = 'Event via onclick property ';
+    }
+
+    d1.addEventListener('mouseout', function(e) {   //event via EventListener
+    	p1.innerHTML = 'Event via EventListener';
+    }, true);
+    
+</script>
+
+
+</html>

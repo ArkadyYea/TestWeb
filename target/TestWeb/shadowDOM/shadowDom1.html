@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+        <title>My Test</title>
+    </head>
+    
+    <body>
+        <p id='p1'>-Not in the shadow!-</p>
+    </body>
+        
+    <script>
+        //Valid elements for attachShadow()
+        //https://dom.spec.whatwg.org/#dom-element-attachshadow
+        //"article", "aside", "blockquote", "body", "div", "footer", "h1" - "h6", "header", "main" "nav", "p", "section", or "span"
+        
+        var host = document.querySelector('#p1');
+        var root = host.attachShadow({mode: 'open'});
+        root.innerHTML = 'I am from shadow DOM!';
+
+        //Old Shadow DOM V0 - only as an example!
+        //var shadow = document.querySelector('#nameTag').createShadowRoot();
+        //var template = document.querySelector('#nameTagTemplate');
+        //var clone = document.importNode(template.content, true);
+        //shadow.appendChild(clone);
+    </script>
+    
+</html>

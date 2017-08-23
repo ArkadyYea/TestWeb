@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //__proto__ is the actual object that is used in the lookup chain to resolve methods. It is a property that all objects have.
+    //One of the benefits of using the pseudoclassical approach over other functional class instantiation approaches is that
+    //it automatically sets a prototype object for the newly constructed objects (i.e. instances).
+    //This prototype object is stored in the constructor function’s prototype property — yes, it’s that simple.
+    //This is why the constructor function’s prototype property created for newly constructed objects
+    //is NOT the same as the internal prototype property of objects. 
+    
+    function A() {
+        a: 'a';
+    }
+    var a = new A();
+    //a.prototype = Object.create(objA);
+    document.write('<br/>A.prototype => '+A.prototype);
+    document.write('<br/>a.prototype => '+a.prototype);
+    document.write('<br/>a.__proto__ => '+a.__proto__);
+
+    document.write('<br/><br/>a.__proto__ => '+(a.__proto__ instanceof Object));
+    document.write('<br/>a.__proto__ => '+(a.__proto__ instanceof A));
+    document.write('<br/>a.__proto__ => '+(a instanceof A));
+
+    document.write('<br/>a.__proto__ => '+(a.__proto__ === A.prototype));
+    document.write('<br/>a.__proto__ => '+(a.__proto__ === Object.prototype));
+    document.write('<br/>a.__proto__ => '+(a.__proto__.__proto__ === Object.prototype));
+
+    document.write('<br/>a.__proto__ => '+(a.constructor === Object));
+    document.write('<br/>a.__proto__ => '+(a.constructor === A));
+
+    document.write('<br/><br/>a.__proto__ => '+(a.constructor));
+    document.write('<br/><br/>After');
+
+    
+    
+    
+</script>
+
+</html>

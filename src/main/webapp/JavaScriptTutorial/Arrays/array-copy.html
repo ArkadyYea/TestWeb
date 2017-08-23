@@ -1,0 +1,25 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+    //Using delete on array elements leaves undefined holes in the array. Use pop() or shift() instead. 
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+
+    document.write('<br/>Array: '+cars);
+
+    var shallowCopy = cars.slice(); // this is how to make a copy
+    delete cars[3];
+    document.write('<br/>Array after delete: '+cars);
+    document.write('<br/>Copy of the array: '+shallowCopy);
+    
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

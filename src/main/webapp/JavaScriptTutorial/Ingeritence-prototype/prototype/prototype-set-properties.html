@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    // 
+    
+    function Cat(name) {
+        this.name = name;
+        //this.info = function() { return 'This is Cat function'; };    //any method attached via this will get re-declared for every new instance we create.
+    }
+    
+    Cat.prototype = {   //We set NEW prototype object here, it inherits form Objets so it sets Object constructor.
+        //constructor: Cat,  //When overwriting the prototype object the constructor property no longer points to the prototype, so we have to set it manually.
+        getName : function () {
+            return this.name;
+        }
+    }
+    Cat.prototype.info = function() {
+        return 'This is a Cat constructor'; 
+    };
+
+    var c1 = new Cat('Catie');
+    
+    document.write('<br/><br/>When we set NEW prototype object, it inherits form Objets, so it sets Object constructor... Cat.prototype.constructor -> '+Cat.prototype.constructor);
+    document.write('<br/>Cat.prototype.info() -> '+Cat.prototype.info());
+    document.write('<br/>c1.info() -> '+c1.info());
+    
+    
+    document.write('<br/><br/>After');
+    
+</script>
+
+</html>

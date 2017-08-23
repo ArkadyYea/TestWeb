@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //In my post JS Prototype, I explained that every function has a constructor property, and this property points to the constructor of the function. Fe: 
+    //function Fruit () {}    var newFruit = new Fruit ();    console.log (newFruit.constructor) // Fruit ()
+    //The one disadvantage of overwriting the prototype is that the constructor property no longer points to the prototype, so we have to set it manually: 
+    //  constructor: User
+    
+    
+    function Animal(name) {
+        this.name =name;
+    }
+
+    Animal.prototype = {
+
+        constructor: Animal,  //The one disadvantage of overwriting the prototype object is that the constructor property no longer points to the prototype, so we have to set it manually
+        
+        legs : function (legs)  {
+            this.legs = legs;
+            return legs;
+        }
+    }
+    
+    var a = new Animal('Dog');
+    
+    document.write('<br/>'+Animal.prototype.constructor);
+    //document.write('<br/>'+a.prototype.constructor);
+    document.write('<br/>'+a.constructor);
+    document.write('<br/><br/>a.legs(4) -> '+a.legs(4));
+    
+    
+    document.write('<br/><br/>After');
+        
+</script>
+
+</html>

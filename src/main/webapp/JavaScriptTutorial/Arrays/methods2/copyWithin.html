@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+    //ECMAScript 6
+    //The copyWithin() method copies array elements within the array, to and from specified positions.
+    //array.copyWithin(target,start,end)
+    
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+    document.write('<br/>cars -> '+cars);
+    
+    var newCars = cars.copyWithin(2,0);
+    document.write('<br/>cars -> '+newCars);
+
+    document.write('<br/><br/>After');
+</script>
+
+</html>

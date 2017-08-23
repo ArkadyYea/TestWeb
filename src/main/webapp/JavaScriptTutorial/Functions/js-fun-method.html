@@ -1,0 +1,39 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+
+    //Methods are functions stored as object properties.
+    //A property will execute (as a function) when it is invoked with (). 
+    //If you access a property without (), it will return the function definition.
+    function abc() {
+        return 'From function abc()';
+    }
+
+    function def(abc) {
+   	   document.write(abc()+'<br/>');
+    }
+    
+    function MyObj(name) {
+        this.name = name;
+        this.retVal = abc();    //Assigns value returned by function
+        this.fun1 = abc;        //Assigns reference to the function
+        this.fun2 = function() { return 'From function fun2()' };
+    }
+
+    var mo = new MyObj('John');
+    document.write('<br/>'+mo.name);
+    document.write('<br/>'+mo.retVal);
+    document.write('<br/>'+mo.fun1());
+    document.write('<br/>A property will execute (as a function) when it is invoked with (): '+mo.fun2());
+    document.write('<br/>If you access a property without (), it will return the function definition: '+mo.fun2);
+    
+    
+    document.write('<br/><br/>After');
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+
+    //A JavaScript function can also be defined using an expression. 
+    //A function expression can be stored in a variable:
+      
+    function multiply(x, y) {
+    	return x * y;
+    }
+
+    //After a function expression has been stored in a variable, the variable can be used as a function: 
+    var funVar1 = multiply;  //or
+
+    //The function below is an anonymous function. Functions stored in variables do not need function names. They are always invoked using the variable name. 
+    var funVar2 = function(x, y) {   return x * y;   }
+    
+    var b = funVar2(3,4);
+    var c = funVar2(5,4);
+
+    document.write('variable as a function 1: '+b);
+    document.write('<br/>variable as a function 2: '+c);
+    
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

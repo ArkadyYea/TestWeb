@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+
+        <!-- syntaxHighlighter Scripts -->
+        <link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css"> 
+        <link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css"> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script> 
+        <!-- <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCSharp.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCss.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJava.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPhp.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPython.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushRuby.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushSql.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushVb.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js" type="text/javascript"></script> 
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPerl.js" type="text/javascript"></script>  -->
+        
+    </head>
+    <body>
+    
+    <pre class="brush: java" >
+    
+    private static boolean unrestrictedPoliciesInstalled = SecurityTestUtil.checkUnrestrictedPoliciesInstalled();
+    
+    final TestParam test;
+    
+    public KerberosTokenTest(TestParam type) {
+        this.test = type;
+    }
+    </pre>
+    
+    <pre class="brush: javascript">
+    var x = 'global x';
+    var o = {
+        x:10,
+        onTimeout: function(){
+            document.write("x:", this.x);  //outputs undefined
+        },
+        otherMethod: function(f){       //passed Function obj has a global scope, it is not assigned to any object, so it is global.
+            f();
+            //this.f = f;   this.f();     //If we assign it back to this object it will work - makes NEW property.
+            //that = this;              //We can pass 'this' reference to a function and then use it to access props (that.x)
+            //f.call(this);             //or we can call it with this object as a context
+        },
+        m: function(){
+            this.otherMethod(this.onTimeout);   //we pass a reference of the Function object 'onTimeout' 
+        }
+    }
+    o.m();
+    
+</pre>
+    
+    </body>
+
+    <script language="javascript">
+        //Must be after <pre> to make autoloader work 
+        SyntaxHighlighter.autoloader(
+            "java http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJava.js",
+            "javascript js http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js",
+            "xml xhtml xslt html xhtml http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js"
+        );
+        SyntaxHighlighter.config.bloggerMode = true;
+        SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/current/scripts/clipboard.swf';
+        SyntaxHighlighter.all();
+        
+        /* window.setTimeout(function() {
+            SyntaxHighlighter.config.bloggerMode = true;
+            SyntaxHighlighter.all();
+        }, 10); */
+
+    </script>
+
+    
+    
+</html>

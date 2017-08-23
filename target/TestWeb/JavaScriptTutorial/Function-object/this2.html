@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+
+    //
+    
+    var mySize = 22;
+
+    var myObject = { mySize : 42, getSize : function() { return this.mySize+1; } };
+    
+    var getSize = function() {
+        return this.mySize; 
+    };
+
+    document.write('<br/><br/>myObject.getSize() -> '+myObject.getSize);
+    
+    var r = getSize.call(myObject);
+    
+    document.write('<br/><br/>getSize.call(myObject) -> '+r);
+
+    var myFunction=myObject.getSize.bind(myObject);
+
+    document.write('<br/><br/>myFunction() -> '+myFunction());
+
+    document.write('<br/><br/>myObject.getSize -> '+myObject.getSize);
+    document.write('<br/><br/>myFunction -> '+myFunction);
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

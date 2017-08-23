@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //JavaScript does not have "methods" in the form that class-based languages define them. 
+    //In JavaScript, any function can be added to an object in the form of a property.
+    //An inherited function acts just as any other property, including property shadowing.
+    //When an inherited function is executed, the value of this points to the inheriting object, not to the prototype object where the function is an own property 
+
+    var objA = { 
+    	a: 'a from objA',
+    	b: 'b from objA',
+    	funA: function() { return this.a; },
+        funB: function() { return this.b; }
+    };
+    
+    var objB = {
+    	a: 'a from objB'
+    };
+
+    objB.__proto__ = Object.create(objA);
+    //objB.__proto__ = objA;
+    
+    
+    document.write('<br/>objA.funA() => '+objA.funA());
+    document.write('<br/>objB.There is "a" property in objB, so it is used. funA() => '+objB.funA());
+    document.write('<br/><br/>There is no "b" property in objB, it is used from upper object in inheritance chain - objA. objB.funB() => '+objB.funB());
+    
+    document.write('<br/><br/>After');
+    
+</script>
+
+</html>

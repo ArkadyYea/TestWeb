@@ -1,0 +1,32 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+
+    //Functions are Objects
+    //The typeof operator in JavaScript returns "function" for functions. But, JavaScript functions can best be described as objects.
+    //JavaScript functions have both properties and methods.
+    
+    //The arguments.length property returns the number of arguments received when the function was invoked:
+    function myFunction(a, b) {
+        return arguments.length;
+    }
+
+    document.write('Arguments: '+myFunction(1, 2));
+    document.write('<br/>Arguments: '+myFunction(1, 2, 3, 4));
+
+    //The toString() method returns the function as a string: 
+    var txt = myFunction.toString(); 
+    document.write('<br/>toString(): '+txt);
+    
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

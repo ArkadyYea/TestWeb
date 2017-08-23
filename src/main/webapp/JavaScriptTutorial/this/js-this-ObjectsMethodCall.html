@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    document.write('Before<br/>');
+    
+    var the_answer = 142;
+    
+    var deep_thought = { 
+        the_answer: 42, 
+        ask_question: function () {
+            return this.the_answer; 
+        } 
+    }; 
+    //JavaScript establishes an execution context for the function call,
+    //setting this to the object referenced by whatever came before the last ”.”, in this case: deep_thought  
+    var the_meaning = deep_thought.ask_question(); 
+    document.write('the_meaning var: '+the_meaning+'<br/>');
+
+    document.write('After<br/>');
+</script>
+
+
+</html>

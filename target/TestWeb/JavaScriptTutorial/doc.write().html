@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input type="button"  value="Click to overwrite" onclick="doIt()" />    
+    </body>
+
+
+<script>
+    
+    document.write('<br/><br/>Never use document.write() after the document is loaded. It will overwrite the document.');
+
+    function doIt() {
+    	document.write('<br/>After the document is loaded write() overwrites the document.');
+    }
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

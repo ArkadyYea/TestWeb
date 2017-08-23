@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="test">I am an element with id #test</div>
+    </body>
+
+
+<script>
+    //
+    
+    function doAlert() {
+        //alert(this.innerHTML);
+        alert(this);
+    }
+    
+    doAlert(); // undefined  (we could use window.doAlert())
+    
+    var myElem = document.getElementById('test');
+    myElem.onclick = doAlert;
+    
+    myElem.onclick(); // I am an element
+        
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

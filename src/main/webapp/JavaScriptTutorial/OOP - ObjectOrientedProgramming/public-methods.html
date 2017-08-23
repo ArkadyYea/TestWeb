@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //Defined by Classname.prototype.methodName = function(){...}
+    //May be called from outside the object.
+    
+    function Test() {
+    	var privVar = 'private';                                                    //Not available
+        var privateFun1 = function() { return ' var privFun1() called'; };          //Not available
+        privateFun2 = function() { return ' privFun2() called'; };                  //Available!
+
+        this.publicVar = 'public';                                                  //Available!
+        this.privilegedMet1 = function () { return 'privilegedMet1() called.' };    //Available!
+    }
+    Test.prototype.publicMethod1 = function () { return this.publicVar };
+    Test.prototype.publicMethod2 = function () { return this.privilegedMet1() };
+    Test.prototype.publicMethod3 = function () { return privateFun2() };
+    
+    var t = new Test();
+    document.write('<br/>-Defined by Classname.prototype.methodName = function(){...}');    
+    document.write('<br/>-May be called from outside the object.');
+    document.write('<br/>&emsp;public property - t.publicMethod1() -> '+t.publicMethod1());
+    document.write('<br/>&emsp;privileged method - t.publicMethod2() -> '+t.publicMethod2());
+    document.write('<br/>&emsp;private function (without var!) - t.publicMethod3() -> '+t.publicMethod3());
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

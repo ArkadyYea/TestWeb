@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //
+    function A() { this.a = true; }
+    var abc = new A;
+    //var abc = { a: true }
+
+    var test1 = inherit(abc);       //We need an object here (abc).
+    var test2 = inherit2(abc);
+    var test3 = inherit3(abc);
+
+    document.write('<br/><br/>test1.a => '+test1.a);
+    document.write('<br/>test1.b => '+test1.b);
+
+    document.write('<br/><br/>test2.a => '+test2.a);
+    document.write('<br/>test2.b => '+test2.b);
+
+    document.write('<br/><br/>test3.a => '+test3.a);
+    document.write('<br/>test3.b => '+test3.b);
+    
+    function inherit(proto) {
+        function F() {}
+    	F.prototype = proto
+    	return new F
+    }
+
+    function inherit2(proto) {
+        function F() {
+            this.b = true;
+        }
+        F.prototype = proto
+        return new F;
+    }
+    
+    function inherit3(proto) {
+        function F() {}
+        F.prototype = proto
+        var f = new F();
+        f.b = true;
+        return f;
+    }
+    
+    document.write('<br/><br/>After');
+    
+</script>
+
+</html>

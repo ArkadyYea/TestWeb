@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //get/set Keywords - In Object literal - DOES NOT work in CONSTRUCTOR 
+    var b = 'winVar';
+    
+    function abc() {
+        var a = this;
+        this.b = 'abcVar'; 
+        this.fun = function() {  return a; } ;
+    }
+    var o = new abc();
+    var th = o.fun();
+    document.write(th.b);
+
+    
+    document.write('<br/><br/>After' );
+    
+</script>
+
+</html>

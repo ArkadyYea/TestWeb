@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //If m() or otherMethod() invoked this.onTimeout, it would work.
+    //But when we retrieved the method we sort of “extracted it” from the object, and passed it as a variable, or a function if you will.
+    //It’s NO LONGER A METHOD, it’s just a function with no call object bound to it.
+    //There is a reason for this behavior, JavaScript functions are just data and can be passed around as such.
+    
+    var x = 'global x';
+    var o = {
+    	x:10,
+        onTimeout: function(){
+            document.write("x:", this.x);  //outputs undefined
+        },
+        otherMethod: function(f){       //passed Function obj has a global scope, it is not assigned to any object, so it is global.
+            f();
+            //this.f = f;   this.f();     //If we assign it back to this object it will work - makes NEW property.
+            //that = this;              //We can pass 'this' reference to a function and then use it to access props (that.x)
+            //f.call(this);             //or we can call it with this object as a context
+        },
+        m: function(){
+            this.otherMethod(this.onTimeout);   //we pass a reference of the Function object 'onTimeout' 
+        }
+    }
+    o.m();  
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

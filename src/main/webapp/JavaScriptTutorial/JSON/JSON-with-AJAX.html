@@ -1,0 +1,42 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    
+    letsDoIt();
+
+    function letsDoIt() {
+        var ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function() {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                document.write('Response (ArrayList in Java): '+ajax.responseText+'<br/>');
+                processJSON(ajax.responseText);
+            } else {
+                document.getElementById("p1").innerHTML = 'Sorry, there was an ERROR!';
+            }
+        };
+        ajax.open("GET", location.origin+"/TestWeb/res/test/jsons", true);
+        ajax.send();
+    }
+
+    function processJSON(data) {
+    	document.write('From processJSON(data): '+data+'<br/>');
+    	var obj = JSON.parse(data);
+    	document.write('Parsed to JS object: '+obj+'<br/>');
+    	document.write('First objects name: '+obj[0].name+'<br/>');
+    	document.write('Array? '+Object.prototype.toString.call(obj)+'<br/>');
+
+    	for (key in obj) {
+    	    document.write('Key is: '+key+', values -> name: '+obj[key].name+', surname: '+obj[key].surname+'<br/>');
+    	}
+    }
+
+    document.write('<br/>After<br/>'+location.origin);
+    
+</script>
+
+</html>

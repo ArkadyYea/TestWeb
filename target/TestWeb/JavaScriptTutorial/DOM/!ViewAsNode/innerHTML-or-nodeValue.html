@@ -1,0 +1,22 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p id="p1">a</p>
+        <p id="p2">b</p>
+    </body>
+<script>
+
+    //<p>a</p>, the element node <p> doesn't contain text. It contains a text node with the value "a".
+    //The value of the text node can be accessed by the node's innerHTML property, or the nodeValue.
+    document.getElementById('p1').innerHTML = 'abc1';   //innerHTML is a property 
+    document.getElementById('p2').firstChild.nodeValue = 'abc2';
+    document.write(); 
+    
+    document.write('<br/><br/>After');
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Window object testing</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        
+    </body>
+
+
+<script>
+    //Window object is NOT a part of DOM, it does NOT implement NODE interface.
+    document.write('Window object is NOT a part of DOM, it does NOT implement NODE interface');
+    document.write('<br/>window instanceof Node -> '+(window instanceof Node));
+    document.write('<br/>window instanceof Element -> '+(window instanceof Element));
+
+    //The window object is supported by all browsers. It represents the browser's window.
+    document.write('<br/><br/>The window object is supported by all browsers. It represents the browser\'s window.');
+    //Properties
+    //closed, defaultStatus, document, frameElement, frames, history, innerHeight, innerWidth, length, localStorage, location, name, navigator, opener, outerHeight, outerWidth, pageXOffset, pageYOffset, parent, screen, screenLeft, screenTop, screenX, screenY, sessionStorage, scrollX, scrollY, self, status, top
+    document.write('<br/><br/>Window obj Properties ---> closed, defaultStatus, document, frameElement, frames, history, innerHeight, innerWidth, length, localStorage, location, name, navigator, opener, outerHeight, outerWidth, pageXOffset, pageYOffset, parent, screen, screenLeft, screenTop, screenX, screenY, sessionStorage, scrollX, scrollY, self, status, top');
+    //Methods
+    //alert(), atob(), blur(), btoa(), clearInterval(), clearTimeout(), close(), confirm(),  focus(), getComputedStyle(), getSelection(), matchMedia(), moveBy(), moveTo(), open(), print(), prompt(), resizeBy(), resizeTo(), scrollBy(), scrollTo(), setInterval(), setTimeout(), stop() 
+    document.write('<br/><br/>Window obj Methods ---> alert(), atob(), blur(), btoa(), clearInterval(), clearTimeout(), close(), confirm(),  focus(), getComputedStyle(), getSelection(), matchMedia(), moveBy(), moveTo(), open(), print(), prompt(), resizeBy(), resizeTo(), scrollBy(), scrollTo(), setInterval(), setTimeout(), stop()'); 
+    //The window object is supported by all browsers. It represents the browser's window.
+    document.write('<br/><br/>window.innerHeight -> '+window.innerHeight);
+    document.write('<br/>window.outerHeight -> '+window.outerHeight);
+    document.write('<br/>window.innerWidth -> '+window.innerWidth);
+    document.write('<br/>window.outerWidth -> '+window.outerWidth);
+    
+    //All global JS objects, functions, and variables automatically become members of the window object.
+    var globalVar = 'globalVar';
+    document.write('<br/><br/>All global JS objects, functions, and variables automatically become members of the window object -> window.globalVar ---> '+window.globalVar);
+    abc();
+    document.write('<br/>window.globalFunctionVar ---> '+window.globalFunctionVar);
+    
+    //The document object (of the HTML DOM) is a property of the window object. 
+    document.write('<br/><br/>The document object (of the HTML DOM) is a property of the window object -> window.document.title ---> '+window.document.title);
+
+    //var myWindow = window.open("", "MsgWindow", "width = 200, height = 100");
+    //myWindow.document.write("<p>This window's name is: " + myWindow.name + "</p>");
+    //window.open("http://www.w3schools.com");
+
+    document.write('<br/><br/>After');
+    function abc() {
+    	globalFunctionVar = 'globalFunctionVar';
+    }
+</script>
+
+
+</html>

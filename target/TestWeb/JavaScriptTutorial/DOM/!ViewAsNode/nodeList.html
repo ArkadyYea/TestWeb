@@ -1,0 +1,28 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body id="b">
+        <div id="div1">
+            <p id="p1">This is a paragraph 1.</p>
+            <p id="p2">This is a paragraph 2.</p>
+        </div>
+    </body>
+<script>
+    //The getElementsByTagName(), getElementsByClassName() return a node list
+    //A node list is an array-like collection of nodes. 
+    //A node list is not an array! A node list may look like an array, but it is not. You can loop through the node list and refer to its nodes like an array.
+    //However, you cannot use Array Methods, like valueOf() or join() on the node list. 
+    var nodeList = document.getElementsByTagName('p');
+
+    document.write('<br/>nodeList.length -> '+nodeList.length);
+    document.write('<br/>nodeList[0] -> '+nodeList[0]);
+    document.write('<br/>nodeList[0].childNodes[0].nodeValue -> '+nodeList[0].childNodes[0].nodeValue);
+    document.write('<br/>nodeList[1].firstChild.nodeValue) -> '+nodeList[1].firstChild.nodeValue);
+
+    document.write('<br/><br/>After');
+</script>
+
+</html>

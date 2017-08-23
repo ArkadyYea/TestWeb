@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+<script>
+
+    function someFun() { return 'someFun, '+this; }
+
+    function MyObject(name) {
+    	var a = 12;      //You can have variable in objects constructor.
+    	this.name = name;
+    	this.name2 = 'Smith';
+    	this.fun = function() { return 3 * 2 };
+    	this.fun2 = someFun;
+    	fun3 = someFun;
+    };
+    MyObject.prototype.abc = 'Property created by prototype';
+    
+    var mo = new MyObject('Aligator');
+    
+    document.write(mo.name+' '+'<br/>');
+    document.write(mo.name2+' '+'<br/>');
+    document.write(mo.fun()+' '+'<br/>');
+    document.write(mo.fun2()+' '+'<br/>');
+    document.write('Global: '+fun3()+' '+'<br/>');
+    document.write(mo.abc+' '+'<br/>');
+    document.write('Here, only MyObject has a prototype property (Array.abc): '+Array.abc+'<br/>');
+
+    document.write('<br/>After');    
+</script>
+
+
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //Execution context of def() has access to variables from all ancestors;
+    
+    var gv = 'globla var';
+    var go = { pr : 'global obj`s property' }
+    
+    function abc() {
+
+        var counter = 0;
+        def();
+        
+        function def() {
+            counter++;
+            document.write('<br/>Counter = '+counter+', gv = '+gv+', go.pr = '+go.pr);
+        }        
+    }
+
+
+    abc();
+
+
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

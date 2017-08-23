@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+<script>
+    
+    var ob = {a: 1};
+    Object.defineProperty( ob, 'B', {value: 2, writable:false} );
+    document.write('<br/>Object.defineProperty( ob, "B", {value: 2, writable:false}' );
+    document.write('<br/>Once a value is defined, it is not possible to change it using assignments. ob.B: '+ob.B);
+    ob.B = 10;
+    document.write('<br/>Setting ob.B = 10 ');
+    document.write('<br/>ob.B: '+ob.B);
+
+    //It is also needed to keep in mind that if the non-writable property contains an object,
+    //the REFERENCE to the object is what is not writable, but the object itself can be modified yet
+    var ob = {a: 1};
+    Object.defineProperty( ob, 'OB', {value: {c:3}, writable:false} );
+    ob.OB.c = 4;
+    ob.OB.d = 5;
+    document.write('<br/><br/>If the non-writable property contains an object, the REFERENCE to the object is what is not writable, but the object itself can be modified. We added property c - ob.OB.c: '+ob.OB.c); // => {c:4, d:5}
+    ob.OB = 'hola';
+    document.write('<br/><br/>Trying to change object has no effect  (ob.OB = "hola"): '+ob.OB.c); // => {c:4, d:5}
+    ob.OB; // => {c:4, d:5}
+
+    //Object.freeze(). freeze will make impossible to add, delete or update any object’s property, and you will get a TypeError if you try so in strict mode. 
+    var ob = { a: 1, b: 2 };
+    ob.c = 3;
+    Object.freeze( ob ); // => {a:1,b:2,c:3}    // Freeze!
+    ob.d = 4;
+    ob.a = -10;
+    delete ob.b;
+    //Object.defineProperty( 'ob', 'e', {value: 5} );
+    document.write('<br/><br/>Object.freeze(). freeze will make impossible to add, delete or update any object’s property (Every modification was ignored) ob.a: '+ob.a);
+    ob; // => {a:1,b:2,c:3}     // Every modification was ignored
+
+    
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    
+    function User(first, last) {
+        this.first = first;
+        this.last = last;
+
+        //Using get/set Keywords    -> WORKS ONLY in object literal 
+        //get First() { return this.first; },
+        //set First( val ) { this.first = val; }
+        
+        //Using __defineGetter__(). It is deprecated, but still can be used.
+        this.__defineGetter__("Last", function() { return this.last; });
+        this.__defineSetter__("Last", function(val){ this.last = val; });
+
+        //Using Object.defineProperty() or Object.defineProperties()
+        Object.defineProperty( this, 'First', {
+            get : function(){ return this.first; },
+            set : function( value ){ this.first = val; }
+        } ); 
+        Object.defineProperties(this, {
+            "First2": {
+                 "get": function() { return this.first+' - 2'; },
+                 "set": function(val) { this.first = val;   }
+            }
+        });
+    }
+
+    //Using prototype
+    User.prototype = {
+        get fullName() {
+            return this.first + " " + this.last;
+        },
+
+        set fullName(name) {
+            var names = name.split(" ");
+            this.first = names[0];
+            this.last = names[1];
+        }
+    };
+
+    
+    
+    
+    
+    var u = new User('empty','empty');
+    document.write('<br/>Using User.prototype getter -> u.fullName: '+u.fullName);
+    u.fullName = 'John Smith';      //We use setter/getter like a property, NOT LIKE A FUNCTION!
+    document.write('<br/>Using User.prototype setter -> u.fullName = "John Smith";');
+    document.write('<br/>Using User.prototype getter -> u.fullName: '+u.fullName);
+
+    document.write('<br/><br/>Using __defineGetter__() -> u.Last: '+u.Last);
+    document.write('<br/><br/>Using Object.defineProperty() -> u.First: '+u.First);
+    document.write('<br/>Using Object.defineProperties() -> u.First2: '+u.First2);
+
+    var obj = {
+        first : 'First',
+        get First() { return this.first; },
+        set First( val ) { this.first = val; },
+
+        //Custom Getters and Setters - get and set aren't reserved words, so they can be overloaded to create your own custom, cross-browser computed property functions.
+        get : function( ){ return this.first },
+        set : function( val ){ this.first = val; }
+        
+    }
+    document.write('<br/><br/>Using get/set keywords (object literals ONLY -> obj.First: '+obj.First);
+    document.write('<br/><br/>Using Custom Getters and Setters (just function named get/set) -> obj.get(): '+obj.get());
+    
+    document.write('<br/><br/>After' );
+</script>
+
+</html>

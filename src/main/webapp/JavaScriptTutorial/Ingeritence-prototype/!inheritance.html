@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //
+    
+    function Animal(name) {
+        this.name = name;
+        this.sound = function() { console.log('Unknown'); };
+        this.toString = function() { return 'toString() of Animal'; };
+    }
+    
+    function Dog(name) {
+        //Animal.call(this, name);  //call to super constructor creates all props from superclass in subclass 
+        this.name = name;
+        this.sound = function() { return 'Hau hau'; };
+        this.toString = function() { return 'Dog.class'; };
+    }
+
+    Dog.prototype = new Animal;
+    //Dog.prototype.constructor = Animal;
+    //Dog.prototype.constructor = Dog;
+    
+    
+    var a1 = new Dog('Rex');
+    
+    document.write('<br/>instance\'s a1.toString() -> '+a1);
+    document.write('<br/>a1.sound() -> '+a1.sound());
+
+    document.write('<br/><br/>Dog -> '+Dog);
+    document.write('<br/>Dog.constructor -> '+Dog.constructor);
+    document.write('<br/>Dog.prototype.constructor -> '+Dog.prototype.constructor);
+
+
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

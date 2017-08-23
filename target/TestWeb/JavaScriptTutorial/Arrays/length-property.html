@@ -1,0 +1,30 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+    //The length property in JavaScript is not quite a length, it is last index + 1. 
+
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+    document.write('<br/>Array: '+cars);
+    
+    cars[9] = 'Honda';
+    document.write('<br/><br/>The length property in JavaScript is not quite a length, it is last index + 1, "cars[9] = \'Honda\' ", cars.length -> '+cars.length+' (But there are 5 elements)');
+    document.write('<br/>The empty space is "undefined", "cars[4]" -> '+cars[4]);
+
+    //You can set the length property to truncate an array at any time.
+    //Decreasing the length property does, however, delete elements.
+    cars.length = 2;
+    document.write('<br/><br/>Decreasing the length property does, however, delete elements: "cars.length = 2" -> '+cars);
+
+    document.write('<br/><br/>After');
+    
+</script>
+
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="arkaApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>Angular Test</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+    </head>
+    
+    <body ng-controller="arkaCtrl">
+        {{now}} <br/>
+        {{greet}}
+    </body>
+    <script>
+        //angular.module('arkaApp', []);
+        angular.module('arkaApp', []).controller('arkaCtrl', function($scope){
+            $scope.now = new Date();
+            $scope.greet = 'Hello';
+        });
+    </script>
+</html>

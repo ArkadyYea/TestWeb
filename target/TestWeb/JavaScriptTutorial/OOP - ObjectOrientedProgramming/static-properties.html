@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //Defined by Classname.propertyName = someValue
+    
+    function Test() {
+        this.publicProp = 'not private';
+    }
+    Test.staticProp = 'static';
+    
+    var t = new Test();
+    
+    document.write('<br/>-Defined by Classname.propertyName = someValue');    
+    //document.write('<br/>-May be read/written from outside the object..');
+    document.write('<br/>&emsp;Test.staticProp -> '+Test.staticProp);
+    Test.staticProp = 'new static';
+    document.write('<br/>&emsp;t.publicProp = "public"; t.publicProp -> '+Test.staticProp);
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

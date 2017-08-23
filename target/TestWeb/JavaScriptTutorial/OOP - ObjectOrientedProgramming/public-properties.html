@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //Declared with this.variableName
+    //May be read/written from outside the object.
+    
+    function Test() {
+        this.publicProp = 'not private';
+    }
+
+    var t = new Test();
+    
+    document.write('<br/>-Declared with this.variableName.');    
+    document.write('<br/>-May be read/written from outside the object..');
+    document.write('<br/>&emsp;t.publicProp -> '+t.publicProp);
+    t.publicProp = 'public';
+    document.write('<br/>&emsp;t.publicProp = "public"; t.publicProp -> '+t.publicProp);
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

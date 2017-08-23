@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //
+    
+    function Abc() { this.a = 'a'; }
+    //var a = new Abc();
+    
+    document.write('<br/>Abc '+Abc);
+
+    Abc = function Def() { this.b = 'b'; }      //expression
+    var a = new Abc();
+    
+    document.write('<br/>Abc '+Abc);
+
+    document.write('<br/>a.a -> '+a.a);
+    document.write('<br/>a.b -> '+a.b);
+    
+    document.write('<br/>typeof Abc -> '+(typeof Abc));
+    document.write('<br/>typeof Def -> '+(typeof Def));
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

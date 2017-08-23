@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //Declared with this.methodName=function(){...}
+    //May invoked by code external to the object.
+    
+    function Test() {
+        var privateProp = 'private';
+        var privateFun1 = function() { return ' var privFun1() called'; };
+        privateFun2 = function() { return ' privFun2() called'; };
+
+        this.privilegedMet1 = function () { return privateFun1() };
+        this.privilegedMet2 = function () { return privateFun2() };
+        this.privilegedMet3 = function () { return 'Can read private properties -> '+privateProp };
+    }
+
+    var t = new Test();
+    
+    document.write('<br/>-Declared with this.methodName=function(){...}');    
+    document.write('<br/>-May invoked by code external to the object.');
+    document.write('<br/>&emsp;t.privilegedMet1() -> '+t.privilegedMet1());
+    document.write('<br/>&emsp;t.privilegedMet2() -> '+t.privilegedMet2());
+    document.write('<br/>&emsp;t.privilegedMet3() -> '+t.privilegedMet3());
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

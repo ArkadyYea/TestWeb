@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body onload="checkIt();">
+    </body>
+    
+<script>
+    //http://stackoverflow.com/questions/11857982/assigning-this-to-a-variable-in-javascript
+    //The value of this is set by the JS interpreter on every single function call including when calling a private functions. The rules are fairly simple:
+    //If calling object.method(), then this is set to the object inside the method.
+    //If calling a function (whether global or local) like fn(), this is set to the global object (which is usually window in a browser).
+    //When using .apply() or .call(), this is set to the first argument to those functions (e.g. you can control what it is set to by what you pass to .apply() or .call().
+    
+    function User(name, surname) {
+    	this.name = name;
+    	this.surname = surname;
+    	this.localFun = function() {
+    		document.write('<br/>This is local function from User obj, constructor: '+this.constructor.name);
+        }
+    	globalFun = function() {
+            document.write('<br/><br/>Declaring w/o this (like variable w/o var) function is global, constructor: '+this.constructor.name);
+        }
+
+    	var userThis = this;
+    	globalFunWithClosue = function() {
+            document.write('<br/><br/>----- We are storing this in a local variable and using it as a closure to run it later: '+userThis.constructor.name);
+        }
+    }
+
+    var u1 = new User('John','Smith');
+    u1.localFun();
+
+    globalFun();
+
+    globalFunWithClosue();
+
+    globalFun.call(u1);
+    document.write('<br/>We can also use apply/call/bind to assign the call to an object');    
+
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

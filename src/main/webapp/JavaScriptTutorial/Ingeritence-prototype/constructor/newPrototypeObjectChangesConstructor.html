@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //
+    
+    function Rabbit() { }
+    function Dog() { }
+
+    var rabbit1 = new Rabbit()
+
+    document.write('<br/><br/>rabbit1.constructor == Rabbit -> '+(rabbit1.constructor == Rabbit));
+    document.write('<br/>rabbit1.constructor -> '+(rabbit1.constructor));
+
+    
+    Rabbit.prototype = new Dog();
+    //Rabbit.prototype.constructor = Rabbit;
+    var rabbit2 = new Rabbit();
+
+    
+    document.write('<br/><br/>rabbit2.constructor == Rabbit -> '+(rabbit2.constructor == Rabbit));   //After change prototype constructor also CHANGES!
+    document.write('<br/>rabbit2.constructor == Dog) -> '+(rabbit2.constructor == Dog));           //true
+    document.write('<br/>rabbit2.constructor -> '+(rabbit2.constructor));
+    document.write('<br/>Rabbit.prototype.constructor == Rabbit -> '+(Rabbit.prototype.constructor == Rabbit));
+    document.write('<br/>Rabbit.prototype.constructor == Dog -> '+(Rabbit.prototype.constructor == Dog));
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

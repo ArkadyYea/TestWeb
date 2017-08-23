@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //When defining a function to be used as a constructor with the new keyword, this can be used to refer to the object being created
+    document.write('Before<br/>');
+    
+    function BigComputer(answer) { 
+        this.the_answer = answer; 
+        this.ask_question = function () { 
+            return this.the_answer; 
+        } 
+    } 
+
+    //When new BigComputer() is executed, a completely new object is created transparently in the background.
+    //BigComputer is called, and its this keyword is set to reference that new object.
+    var deep_thought = new BigComputer(42);
+    var the_meaning = deep_thought.ask_question(); 
+
+    document.write(the_meaning+'<br/>');
+
+    document.write('After<br/>');
+</script>
+
+
+</html>

@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <style>
+            #d1 {
+                background-color: coral;
+                border: 1px solid;
+                padding: 50px;
+                width: 100;
+            }
+            .d2 {
+                background-color: red;
+                border: 1px solid;
+                padding: 50px;
+                width: 100;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="d2" class="d2" >Click me!</div>
+        <div id="d1" >Click me!</div>
+        <p id="p1"></p>
+    </body>
+
+<script>
+
+    document.write(' '+'<br/>');
+
+    var p1 = document.getElementById('p1');
+    var d1 = document.getElementsByTagName('div');
+
+    for(var i = 0; i<d1.length; i++) {
+        d1[i].addEventListener('click', function(e) { p1.innerHTML = 'CLIKED!'; }, false);
+        d1[i].addEventListener('dblclick', function(e) { p1.innerHTML = 'DOUBLE CLICKED!'; }, false);
+    }
+    
+    document.write('div array size: '+d1.length);
+    document.write('<br/>cookie: '+document.cookie);
+    document.write('<br/><br/>After');
+    
+</script>
+
+
+</html>

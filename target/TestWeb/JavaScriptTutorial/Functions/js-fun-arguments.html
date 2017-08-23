@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+
+    //JavaScript function definitions do not specify data types for parameters.
+    //JavaScript functions do not perform type checking on the passed arguments.
+    //JavaScript functions do not check the number of arguments received. 
+
+    //JavaScript functions have a built-in object called the arguments object.
+    //The argument object contains an array of the arguments used when the function was called (invoked).
+    function abc() {
+        document.write('arguments.length: '+arguments.length+', arguments: '+showAll(arguments)+'<br/>');
+        document.write('Argument 2: '+arguments[1]+'<br/>');
+        document.write('Argument 100: '+arguments[99]+'<br/>');
+        function showAll(args){
+            var x = '';
+            for(var i=0; i<args.length; i++)
+                x += args[i]+', ';
+            return x;
+        };
+    }
+    abc(3,2,1,11);
+
+    //Arguments are Passed by Value (Changes to arguments are not visible (reflected) outside the function)
+    var x = 5;
+    abc2(x);    //passed by value
+    document.write('x after: '+x+'<br/>');
+
+    //Objects are Passed by Reference (Changes to object properties are visible (reflected) outside the function)
+    var y = {x : 55};
+    abc3(y);    //passed by reference
+    document.write('y.x after: '+y.x+'<br/>');
+    
+    function abc2(arg) {
+        document.write('<br/>arg before: '+arguments[0]+'<br/>');
+        arg = 4;
+        document.write('arg after: '+arguments[0]+'<br/>');
+    }
+    function abc3(arg) {
+        document.write('<br/>arg before: '+arguments[0].x+'<br/>');
+        arg.x = 4;
+        document.write('arg after: '+arguments[0].x+'<br/>');
+    }
+
+    document.write('<br/>Passes a COPY of a reference (by value), so when we assing a new user it has no impact on the original user.');
+    //Passes a COPY of a reference, so when we assing a new user it has no impact on the original user.
+    function testRef(user) {
+        user = new User('Anna','Karenina');     //It is a local user, it gets destroyed after function returns 
+    }
+    var u1 = new User('John','Smith');
+
+    u1.toString();
+    testRef(u1);
+    u1.toString();
+
+    document.write('<br/><br/>After');
+
+    
+    function User(name, surname) {
+        this.name = name;
+        this.surname = surname;
+        this.toString = function() {
+            document.write('<br/>[User] name: '+this.name+', surname: '+surname);
+        }
+    }
+</script>
+
+
+</html>

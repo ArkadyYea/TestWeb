@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //
+
+    var myObject = { 
+    	mySize: 99,
+    	getSize: function() {
+    		return myObject.mySize;
+        }
+    };
+
+    document.write('<br/>'+myObject.getSize());
+    document.write('<br/>'+myObject.mySize);
+
+    var myObject2 = { 
+        mySize: 99,
+        getSize: function() {
+            return this.mySize;
+        }
+    };
+
+    document.write('<br/><br/>'+myObject2.getSize());
+    
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

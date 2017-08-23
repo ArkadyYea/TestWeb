@@ -1,0 +1,33 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p id="p1" style="color: red">AJAX Request failed</p>
+        <p id="p2" style="color: blue"></p>
+    </body>
+
+
+<script>
+
+    var ajax = new XMLHttpRequest();
+
+    //ajax.open("GET", location.origin+"/TestWeb/res/test/json", true);
+    ajax.open("GET", "http://localhost:8080/TestWeb/res/test/json", false);           //!async = false jak nie ma ajax.onreadystatechange callback method
+    //ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    ajax.send();
+    
+    document.getElementById("p1").innerHTML = ajax.responseText;
+    var obj = JSON.parse(ajax.responseText);
+    document.getElementById("p2").innerHTML = 'JS object -> name: '+obj.name+', surname: '+obj.surname;
+
+    
+    document.write('<br/>After<br/>'+location.protocol+'//'+location.host);
+    //document.write('<br/>'+ajax.);
+    
+</script>
+
+
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+    //JavaScript Version:   1.6
+    //The forEach() calls a provided function once for each element in an array, in order.
+    //array.forEach(function(currentValue,index,arr), thisValue)
+
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+    document.write('<br/>cars -> '+cars);
+    
+    document.write('<br/>For each element:');
+    cars.forEach(check);
+
+    function check(item, index) {
+        document.write('<br/>'+index+' -> '+item)
+    }
+
+    document.write('<br/><br/>After');
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+
+    function abc() {
+        return 'John';
+    }
+
+    function def(abc) {
+   	    document.write('<br/>A property will execute (as a function) when it is invoked with (): '+abc()+'<br/>');
+   	    document.write('If you access a property without (), it will return the function definition: '+abc+'<br/>');
+    }
+
+    document.write('<br/>');
+
+    def(abc);
+    def( function() {return 'Mark';} );
+
+    document.write('<br/>');
+    document.write(this);
+
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    document.write('Before<br/>');
+
+    var ima_celebrity = "I'm a global celebrity. ", the_president = "I'm the president! "; 
+    document.write('From the the global we can see: '+ima_celebrity+'<br/>');
+    pleasantville();
+    
+    function pleasantville() { 
+        var the_mayor = "I'm the mayor! ", ima_celebrity = "I'm a local celebrity. "; 
+        document.write('From the pleasantville() we can see: '+ima_celebrity+', '+the_president+', '+the_mayor+'<br/>');      
+        lonely_house();
+        
+        function lonely_house() { 
+            var agoraphobic = "I fear the day star!", 
+            a_cat = "Meow."; 
+            document.write('From the lonely_house() we can see: '+ima_celebrity+', '+the_president+', '+the_mayor+'<br/>');
+        } 
+    }
+    
+    document.write('After<br/>');
+</script>
+
+
+</html>

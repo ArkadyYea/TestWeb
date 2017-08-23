@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //Every invocation of a function will create a new execution context and associated VO, which holds the values of variables evaluated in the current context. 
+    //inner() was created in the global context, therefore its scope chain is statically bound to the global context.
+    //Lines that invoke inner() looks in inner.ScopeChain to resolve i, which is located in the global context.
+    //At the time of each invocation, i, has already been incremented to 5, giving the same result every time inner() is called.
+    
+    //The statically bound scope chain, which holds [VOs] from each context containing live variables, often catches developers by surprise. 
+    
+    var myAlerts = [];
+
+    for (var i = 0; i < 5; i++) {           //var i is a closure for inner function
+        myAlerts.push(                      //We assign a function to an array element
+        	function inner() {
+        		document.write('<br/>'+i);
+        	}
+        );
+    }
+
+    myAlerts[0](); // 5
+    myAlerts[1](); // 5
+    myAlerts[2](); // 5
+    myAlerts[3](); // 5
+    myAlerts[4](); // 5
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

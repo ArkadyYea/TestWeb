@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //We can call manually a constructor from a property Function.prototype.constructor or object.constructor
+    
+    function Animal(name) {
+        this.name = name+' (Animal constructor used)';
+        this.sound = function() { console.log('Unknown'); };
+    }
+
+    function Cat(name) {
+        this.name = name+' (Cats constructor used)';
+    }
+    
+    Animal.prototype.constructor = Cat;
+
+    var a1 = new Animal.prototype.constructor('Rudy');
+    var a2 = new a1.constructor('Kiti');
+    
+    document.write('<br/>Animal.prototype.constructor -> '+Animal.prototype.constructor);
+    document.write('<br/>a1.constructor -> '+a1.constructor);
+
+    document.write('<br/><br/>a1.name -> '+a1.name);
+    document.write('<br/>a2.name -> '+a2.name);
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

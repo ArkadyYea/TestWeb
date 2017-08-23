@@ -1,0 +1,32 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body id="b">
+        <div id="div1">
+            <p id="p1">This is a paragraph 1.</p>
+            <p id="p2">This is a paragraph 2.</p>
+        </div>
+        <div id="div2">
+            <p id="p21">This is a paragraph 21.</p>
+            <p id="p22">This is a paragraph 22.</p>
+        </div>
+    </body>
+<script>
+
+    //To remove an HTML element, you must know the parent of the element: 
+    //The method node.remove() is implemented in the DOM 4 specification. But because of poor browser support, you should not use it. 
+    var parent = document.getElementById('div1');
+    var child = document.getElementById('p1');
+    parent.removeChild(child);
+
+    var parent2 = document.getElementById('b');
+    var child2 = document.getElementById('div2');
+    parent2.removeChild(child2);
+    
+    document.write('<br/><br/>After');
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<html>
+    
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        
+    </head>
+    
+    <body>
+        <p id="p1">Before setInterval.</p>
+    </body>
+    
+    
+    <script>
+
+        var p1 = document.getElementById('p1');
+        var counter = 0;
+        
+        (function(){
+            var intrv = window.setInterval(function() {
+            	counter++;
+                p1.innerHTML = 'Interval invoked! '+counter;
+                if(counter%2 == 0) {
+                	p1.style.color = 'red';
+                } else {
+                	p1.style.color = 'blue';
+                }
+                if(counter >5) {
+                    p1.innerHTML = 'Interval interrupted! '+counter;
+                    window.clearInterval(intrv);
+                }
+            }, 1000);
+
+            window.setTimeout(function() {
+            	window.clearInterval(intrv);
+            }, 10000);
+
+            
+            
+        })();
+    </script>
+    
+</html>

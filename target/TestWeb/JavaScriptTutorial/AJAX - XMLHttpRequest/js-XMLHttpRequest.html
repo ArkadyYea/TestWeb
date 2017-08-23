@@ -1,0 +1,42 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p id="p1" style="color: red">Waiting for AJAX Request...</p>
+        <p id="p2" style="color: blue"></p>
+        <input type="button" value="Lets do some AJAX" onclick="letsDoIt()"><br/>
+        <input type="button" value="Lets undo AJAX" onclick="letsUndoIt()"><br/>
+    </body>
+
+<script>
+
+    function letsDoIt() {
+    	var ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function() {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                document.getElementById("p1").innerHTML = 'JSON Object -> '+ajax.responseText;
+                var obj = JSON.parse(ajax.responseText);
+                document.getElementById("p2").innerHTML = 'JS object -> name: '+obj.name+', surname: '+obj.surname;
+            } else {
+            	document.getElementById("p1").innerHTML = 'Sorry, there was an ERROR!';
+            }
+        };
+
+        ajax.open("GET", location.origin+"/TestWeb/res/test/json", true);
+        ajax.send();
+    }
+    
+    function letsUndoIt() {
+        document.getElementById('p1').innerHTML = 'Waiting for AJAX Request...';
+        document.getElementById("p2").innerHTML = '';
+    }
+    
+    document.write('<br/>After<br/>'+location.origin);
+
+</script>
+
+
+</html>

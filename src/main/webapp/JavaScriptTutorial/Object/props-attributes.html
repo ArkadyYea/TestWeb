@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+<script>
+    var ob = {a: 1, b: 2};
+
+    //Create new property
+    Object.defineProperty( ob, 'c', {
+        value: 3,
+        enumerable: false,    //wont enumerate
+        writable: false,      //cant be changed
+        configurable: false   //not configurable
+    });
+    ob.c = 55;
+    document.write('Value can not be changed (writable: false): '+ob.c);
+    document.write('<br/>Property can not be enumerated (enumerable: false): '+ Object.keys(ob) );
+    //Object.defineProperty( ob, 'c', { writable: false });
+    //Object.defineProperty( ob, 'c', { value: 33 });
+    document.write('<br/>Property can not be redefined (configurable: false): '+ob.c);
+    
+    //the default option values for Object.defineProperty are completely the opposite to the ones applied when adding a property by assigment:
+    //The default property by assignment is non-enumerable, non-writable and non-configurable. 
+    Object.defineProperty( ob, 'd', { value: 4 });      //Object {value: 4, writable: false, enumerable: false, configurable: false}
+    ob.d = 44;
+    document.write('<br/><br/>The default property by assignment is non-enumerable, non-writable and non-configurable: '+ob.d);
+
+    //The object that define the property attributes is called descriptor, 
+    //You can have a look at the descriptor of any property using Object.getOwnPropertyDescriptor().     
+    var desc = Object.getOwnPropertyDescriptor(ob, 'd');    
+    document.write('<br/>Desc: '+desc);
+    console.log(desc);
+
+    //It is also possible to define the properties on object creation if you instantiate it using the method Object.create( prototype, properties ).
+    //It accepts an object with property descriptors as the second parameter. 
+    var ob2 = Object.create(Object.prototype, {
+    	  a: { writable:true, enumerable:true, value: 1 },
+    	  b: { enumerable: true, value: 2 }
+    	});
+    document.write('<br/>'+ob2.a);
+
+    
+    
+    document.write('<br/>After');
+</script>
+
+
+</html>

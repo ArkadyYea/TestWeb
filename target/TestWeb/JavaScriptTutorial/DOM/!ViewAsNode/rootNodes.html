@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body id="body">
+        <input id="in1" type="button" value="document.body" onclick="doIt()" /><br/>
+        <input id="in2" type="button" value="document.documentElement" onclick="doIt2()"/>
+    </body>
+<script>
+    //DOM Root Nodes - There are 2 special properties that allow access to the full document:
+    // • document.body - The body of the document 
+    // • document.documentElement - The full document 
+    
+    function doIt() {
+    	alert(document.body.innerHTML);
+    }
+
+    function doIt2() {
+    	alert(document.documentElement.innerHTML);
+    }
+    
+</script>
+
+</html>

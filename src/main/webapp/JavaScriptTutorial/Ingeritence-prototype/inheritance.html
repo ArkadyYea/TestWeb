@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //In ECMAScript 5 we have new syntax for creating object-to-object inheritance:      var childObject = Object.create(parentObject);
+    //
+    //Iherit from object literals           B.prototype = c             B.prototype = Object.create(c);
+    //Or you must instantiate an object     B.prototype = new A();      B.prototype = Object.create(new A());
+    
+    var c = { c: 'c' };
+    var a = new A();
+    
+    //B.prototype = new A();                //works with 'new Object()'
+    //B.prototype = Object.create(new A()); //works with 'new Object()'  
+    //B.prototype = Object.create(c);       //Works with object literal
+    //B.prototype = c;                      //Works with object literal
+    //obj.__proto__ = c;                    //When both are object literals
+    
+    var test = new B();
+    //test.__proto__ = a;                   //Ok
+    
+    
+    document.write('<br/>test.a => '+test.a);
+    document.write('<br/>test.b => '+test.b);
+    document.write('<br/>test.c => '+test.c);
+    
+    function A() {
+        this.a = 'a';
+    }
+    function B() {
+        this.b = 'b';
+        //A.apply(this, arguments);
+    }
+    
+    
+    //Object.getPrototypeOf()
+    //Object.setPrototypeOf(obj, prototype);
+    
+    document.write('<br/><br/>After');
+    
+</script>
+
+</html>

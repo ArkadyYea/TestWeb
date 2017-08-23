@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+
+    //valueOf() is the default behavior for an array. It converts an array to a primitive value.
+    //JavaScript will automatically convert an array to a string when a primitive value is expected.
+    //Because of this, all these examples will produce the same result:
+    
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+    
+    document.write('<br/>cars -> '+cars);
+    document.write('<br/>cars.toString() -> '+cars.toString());
+    document.write('<br/>cars.valueOf() -> '+cars.valueOf());
+
+    document.write('<br/><br/>After');
+</script>
+
+</html>

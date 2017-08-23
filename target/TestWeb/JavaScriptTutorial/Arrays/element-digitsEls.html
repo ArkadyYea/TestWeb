@@ -1,0 +1,33 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+    //There is nothing special about JavaScript arrays and the properties that cause this.
+    //JavaScript properties that begin with a digit cannot be referenced with dot notation; and must be accessed using bracket notation.
+    //For example, if you had an object with a property named '3d', it can only be referenced using bracket notation. E.g.:
+
+    var years = [1950, 1960, 1970, 1980, 1990, 2000, 2010];
+    //document.write('<br/>'+years.0);   // a syntax error
+    document.write('<br/>JavaScript properties that begin with a digit cannot be referenced with dot notation; and must be accessed using bracket notation, years[0] -> '+years[0]);  // works properly
+
+
+    var years2 = {0:1950, 1:1960};
+    //document.write('<br/>'+years2.0); // a syntax error
+    document.write('<br/><br/>years2[0]: '+years2[0]);  // works properly
+    document.write('<br/>or years2["1"]: '+years2['1']);  // works properly
+
+    document.write('<br/><br/>Object.keys(years) -> '+Object.keys(years));
+
+    
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

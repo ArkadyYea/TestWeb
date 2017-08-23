@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body id="b">
+        <div>
+            <p id="p1" title="pr1" role="prg1" >This is a paragraph</p>
+        </div>
+    </body>
+<script>
+    
+    var p1 = document.getElementById('p1');
+    var attrs = p1.attributes;
+    
+    document.write('<br/>p1.attributes -> '+attrs);
+
+    for(var i=0; i<attrs.length; i++) {
+    	document.write('<br/>'+attrs[i] + ', nodeValue -> '+ attrs[i].nodeValue);
+    }
+    
+    document.write('<br/><br/>After');
+</script>
+
+</html>

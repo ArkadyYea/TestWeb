@@ -1,0 +1,28 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+
+    //Functions can also be defined with a built-in JavaScript function constructor called Function(). 
+      
+    var myFunction = new Function("a", "b", "return a * b");
+
+    var c = myFunction(3.5, 4);
+
+    document.write('<br/>Using Function() Constructor: '+c);
+
+    //You actually don't have to use the function constructor. The example above is the same as writing: 
+    var myFunction2 = function(a, b) {return a * b};
+    
+    //Most of the time, you can avoid using the new keyword in JavaScript. 
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

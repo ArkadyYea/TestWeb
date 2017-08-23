@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //eval context
+    
+    var x = 'global x';
+    
+    window.eval('document.write(this)')
+    window.eval('document.write("<br/>"+x)')
+    
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

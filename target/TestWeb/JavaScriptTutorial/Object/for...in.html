@@ -1,0 +1,51 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+    document.write('<br/>');
+    //The for...in statement iterates over the enumerable properties of an object, in arbitrary order.     
+    var obj = { 'first' : 'John', 'second' : 'Mark', 'third' : 'Donnie', 'fourth' : 'Zork' };
+    document.write('Object for...in -> enumerates all the enumerable properties of an object<br/>');
+    for (prop in obj) {
+        document.write('Property ---> '+prop+', value ---> '+obj[prop]+'<br/>');
+    }
+    
+    
+    function User(name, surname) {
+        this.name = name;
+        this.surname = surname;
+        this.toString = function() {
+            return 'name: '+this.name+', surname: '+this.surname;
+        }
+    }
+
+    document.write('<br/><br/><br/>');
+    var usr = new User('John','Smith');
+
+    document.write('User: '+usr+'<br/>');
+    
+    var txt1 ='';
+    var txt2 ='';    
+
+    for (prop in usr) {
+        txt1 += prop+', ';
+        txt2 += usr[prop]+', ';
+    }
+    
+    document.write('Properties of user object: <br/>');
+    document.write(txt1+'<br/><br/>');
+    document.write('Property values of user object: <br/>');
+    document.write(txt2+'<br/>');
+    
+    
+</script>
+
+
+</html>

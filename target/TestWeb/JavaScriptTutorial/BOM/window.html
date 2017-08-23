@@ -1,0 +1,41 @@
+<html>
+    <head>
+        
+        <title>Window object testing</title>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 1500px;">
+        
+    </body>
+
+
+<script>
+    //Window object is NOT a part of DOM, it does NOT implement NODE interface.
+    document.write('<br/><br/>Window object is NOT a part of DOM, it does NOT implement NODE interface');
+    document.write('<br/>window instanceof Node -> '+(window instanceof Node));
+    document.write('<br/>window instanceof Element -> '+(window instanceof Element));
+
+    //The window object is supported by all browsers. It represents the browser's window.
+    document.write('<br/><br/>'+window);
+    document.write('<br/>window.innerHeight -> '+window.innerHeight);
+    document.write('<br/>window.outerHeight -> '+window.outerHeight);
+    document.write('<br/>window.innerWidth -> '+window.innerWidth);
+    document.write('<br/>window.outerWidth -> '+window.outerWidth);
+    document.write('<br/>window.screen.height -> '+window.screen.height);
+    document.write('<br/>window.screen.width -> '+window.screen.width);
+    window.scrollTo(0, 30);
+    //document.write('<br/>'+);
+    
+    var str = "Hello World!";
+    var enc = window.btoa(str);
+    var dec = window.atob(enc);
+
+    var res = "Encoded String: " + enc + "<br>" + "Decoded String: " + dec;
+    document.write('<br/><br/>'+res);
+
+    
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //Methods on the prototype chain are created ONCE and then "inherited" by each instance.
+    //Creating methods inside the constructor is poorer performance. Each method has to be created every time the constructor function runs. 
+    
+    //Every JavaScript object has a prototype. The prototype is also an object. 
+    //All JavaScript objects inherit the properties and methods from their prototype.
+    //The Object.prototype is on the top of the prototype chain.
+    //All JavaScript objects (object literal, new Object(), Date, Array, RegExp, Function, ....) inherit from the Object.prototype.
+    //Objects created with new Date() inherit the Date.prototype.
+    //The constructor function is the prototype for your own objects.
+     
+    function User(name, surname) {  
+        this.name = name;
+        this.surname = surname;
+        this.age = 1;
+    }
+
+    var obj = new User('John','Smith');
+    document.write('<br/>The constructor function is the prototype for your own objects: '+obj.name);
+    document.write('<br/>Prototype properties can have prototype values (default values) -> age (def. 1): '+obj.age);
+
+    User.prototype.phone = '555-545-342';
+    User.prototype.toString = function() {   return 'name: '+this.name+', surname: '+this.surname;    }
+    document.write('<br/><br/>The JavaScript prototype property allows you to add new properties to an existing prototype (phone): '+obj.phone); 
+    document.write('<br/>The JavaScript prototype property allows you to add new methods to an existing prototype (toString): '+obj.toString());
+
+    var myObject = {first: 'one', second : 'two'};
+    Object.prototype.third = 'three';
+    document.write('<br/><br/>Objects created using an object literal, or with new Object(), inherit from a prototype Object.prototype: '+myObject.third);
+
+    document.write('<br/><br/>How to find object type (User.prototype.constructor.name): '+User.prototype.constructor.name);
+    document.write('<br/>How to find object type (Array.prototype.constructor.name): '+Array.prototype.constructor.name);
+    document.write('<br/>'+Object.prototype.toString.call(myObject));
+    
+</script>
+
+</html>

@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //
+    x = 22;
+
+    String.x = 44;
+    String.onTimeout = function() {
+        document.write("<br/>outside x:", this.x);
+    };
+    
+    a = new String('abc');
+
+    document.write("<br/>", a);
+    document.write("<br/>", String.onTimeout());
+
+    
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

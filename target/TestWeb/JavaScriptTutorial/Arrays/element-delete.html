@@ -1,0 +1,24 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+    //Using delete on array elements leaves undefined holes in the array. Use pop() or shift() instead. 
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+
+    document.write('<br/>Array: '+cars);
+
+    document.write('<br/><br/>Using delete on array elements leaves undefined holes in the array. Use pop() or shift() instead.');
+    delete cars[2];
+    document.write('<br/><br/>delete cars[2] -> '+cars);
+
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

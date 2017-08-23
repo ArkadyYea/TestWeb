@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <style>
+            #d1 {
+                background-color: coral;
+                border: 1px solid;
+                padding: 50px;
+                width: 120;
+            }
+            .d2 {
+                background-color: red;
+                border: 1px solid;
+                padding: 50px;
+                width: 120;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="d2" class="d2" >Click me!</div>
+        <div id="d1" >This element has #d2 name selector</div>
+        <p id="p1"></p>
+    </body>
+
+<script>
+
+    document.write(' '+'<br/>');
+
+    var p1 = document.getElementById('p1');
+    var d1 = document.querySelector('#d1');
+
+    d1.addEventListener('click', function(e) { p1.innerHTML = 'CLIKED!'; }, false);
+    d1.addEventListener('dblclick', function(e) { p1.innerHTML = 'DOUBLE CLICKED!'; }, false);
+    
+    
+    document.write('<br/><br/>After');
+    
+</script>
+
+
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+    //JavaScript Version:   1.6
+    //some() checks if any of the elements in an array pass a test (provided as a function).
+    //The some() executes the function once for each element present in the array:
+    // • If it finds an array element where the function returns a true value, some() returns true (and does not check the remaining values)
+    // • Otherwise it retuns false
+
+    //array.some(function(currentValue,index,arr),thisValue)
+
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+    document.write('<br/>cars -> '+cars);
+    
+    document.write('<br/>Element with length > 5 -> '+cars.some(check));
+    document.write('<br/>Element with length > 10 -> '+cars.some(check2));
+
+    function check(el) {
+        if(el.length > 5) return true;
+        return false;
+    }
+    function check2(el) {
+        if(el.length > 10) return true;
+        return false;
+    }
+
+    document.write('<br/><br/>After');
+</script>
+
+</html>

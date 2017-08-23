@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+<script>
+    //The scope of a variable declared with var is its current execution context, which is either the enclosing function
+    //or, for variables declared outside any function, global. 
+    //Assigning a value to an undeclared variable implicitly creates it as a global variable (a property of the global object) when the assignment is executed
+    //var hoisting - declared variables are created before any code is executed.
+    //Undeclared variables do not exist until the code assigning to them is executed.  
+    //Declared variables are a non-configurable property of their execution context (function or global). Undeclared vars are configurable (fe. can be deleted). 
+    //Global and local variables with the same name are different variables. Modifying one, does not modify the other.
+    
+    var globalVar = 'global variable';
+    var globalFun = function() { return 'global function';  }
+    
+    function test(arg) {
+        var funLocalVar = 'local variable declared inside a function';
+        funGlobalVar = 'global variable declared inside a function';
+        var funLocalFunc = function() { return 'local function declared inside a function'; }
+        funGlobalFun = function() { return 'global function declared inside a function'; }
+    }
+
+    document.write('<br/>globalVar -> '+globalVar);
+    document.write('<br/>variables declared outside any function are global, window.globalVar -> '+window.globalVar);
+    document.write('<br/>variables declared outside any function are global, this.globalFun() -> '+this.globalFun());
+
+    document.write('<br/><br/>Declared variables declared inside a function are local (visible only in that function)');
+
+    document.write('<br/><br/>Functions parameters are local variables');
+
+    document.write('<br/><br/>Undeclared variables do not exist until the code assigning to them is executed. test();');
+    test();     //Undeclared variables do not exist until the code assigning to them is executed.
+    document.write('<br/><br/>Assigning a value to an undeclared variable implicitly creates it as a global, funGlobalVar -> '+funGlobalVar);
+    document.write('<br/>Assigning a value to an undeclared variable implicitly creates it as a global, window.funGlobalVar -> '+window.funGlobalVar);
+    document.write('<br/>window.funGlobalFun -> '+window.funGlobalFun());
+
+    
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+
+</html>

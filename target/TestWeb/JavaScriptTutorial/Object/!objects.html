@@ -1,0 +1,46 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+    
+    //JS is a loosely typed or a dynamic language. That means you don't have to declare the type of a variable ahead of time.
+    //The type will get determined automatically while the program is being processed. That also means that you can have the same variable as different types
+    
+    //Reference values are objects that are stored in the heap. 
+    //Reference value stored in the variable location is a pointer to a location in memory where the object is stored. 
+    var ref = new String('abc');
+    document.write('new String(\'abc\') instanceof String: '+(ref instanceof String));
+    document.write('<br/>new String(\'abc\') typeof: '+(typeof ref));
+
+    ref = 'abc';
+    document.write('<br/><br/>ref = \'abc\' instanceof String: '+(ref instanceof String));
+    document.write('<br/>ref = \'abc\' typeof: '+(typeof ref));
+    ref = 123;
+    document.write('<br/><br/>ref = 123 typeof: '+(typeof ref));
+    
+    var obj1 = new Object();
+    obj1.propOne = 'One';
+    document.write('<br/><br/><br/>Property one: '+obj1.propOne);
+
+    var obj2 = Object.create(obj1);
+    Object.prototype.propTwo = 'Two';
+    document.write('<br/><br/>Property obj2.propOne: '+obj2.propOne);
+    document.write('<br/>Property obj2.propTwo: '+obj2.propTwo);
+
+    Object.prototype.toString = function() {
+        return this.propOne+', '+this.propTwo;
+        //return 'bla';
+    }
+    document.write('<br/><br/>toString(): '+obj2);
+    
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

@@ -1,0 +1,26 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p id="p1">a</p>
+        <p id="p2">b</p>
+    </body>
+<script>
+    //<p>a</p>, the element node <p> doesn't contain text. It contains a text node with the value "a".
+    //The value of the text node can be accessed by the node's innerHTML property, or the nodeValue.
+    document.getElementById('p1').childNodes[0].nodeValue = 'First Paragraph ';
+    document.write('p1 - childNodes.length -> '+document.getElementById('p1').childNodes.length);
+    document.write('<br/>p1 - childNodes[0] -> '+document.getElementById('p1').childNodes[0]);
+    document.write('<br/>p1 - childNodes -> '+document.getElementById('p1').childNodes);
+    
+    document.getElementById('p2').firstChild.nodeValue = 'Second Paragraph';
+    document.write('<br/><br/>p2 - firstChild -> '+document.getElementById('p1').firstChild);
+    document.write(); 
+       
+    document.write('<br/><br/>After');
+</script>
+
+</html>

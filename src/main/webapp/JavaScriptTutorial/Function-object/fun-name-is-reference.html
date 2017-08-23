@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //Function name is a reference to a Function object.
+    
+    function Ball() {  this.i=1;  }
+
+    document.write('<br/><br/>Function name is a reference to a Function object.<br/>&emsp;Ball -> ' +Ball);
+    
+    Ball = function () { this.i = 2; }
+    
+    
+    document.write('<br/><br/>Ball = function () { this.i = 2; }<br/>&emsp;Ball -> ' +Ball);
+
+    var b = new Ball();
+    document.write('<br/><br/>' +b.i);
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

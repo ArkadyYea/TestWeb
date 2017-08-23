@@ -1,0 +1,36 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+
+    //The problem is that the JavaScript operator typeof returns "object":
+    var cars = new Array("Saab", "Volvo", "BMW"); 
+
+    document.write('<br/>Array1: '+cars+'<br>typeof: '+(typeof cars));
+
+    //ECMAScript 5 defines a new method Array.isArray():
+    document.write('<br/><br/>(ECMAScript 5) Array.isArray(cars) -> isArray?: '+Array.isArray(cars));
+
+    //The instanceof operator returns true if an object is created by a given constructor:
+    document.write('<br/><br/>The instanceof operator returns true if an object is created by a given constructor - cars instanceof Array -> '+(cars instanceof Array));
+    
+    //You can create your own isArray() function:
+    document.write('<br/><br/>You can create your own isArray() function - myIsArray() -> '+myIsArray(cars));
+    
+
+    function myIsArray(x) {
+    	//document.write('<br/><br/>'+x.constructor.toString());
+        return x.constructor.toString().indexOf("Array") > -1;
+    }
+
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

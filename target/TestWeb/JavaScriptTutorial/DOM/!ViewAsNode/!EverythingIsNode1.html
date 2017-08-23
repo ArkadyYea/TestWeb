@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+       <p id="p1">This is a paragraph.</p>
+    </body>
+<script>
+    
+    document.write('');
+
+    document.write('<br/>document instanceof Node -> '+(document instanceof Node));
+    document.write('<br/>document instanceof Element -> '+(document instanceof Element));
+
+    document.write('<br/><br/>document.firstChild (html tag) -> '+(document.firstChild));
+    document.write('<br/>document.firstChild instanceof Node -> '+(document.firstChild instanceof Node));
+    document.write('<br/>document.firstChild instanceof Element -> '+(document.firstChild instanceof Element));
+
+    document.write('<br/><br/>document.firstChild.firstChild.nextElementSibling (body tag) -> '+(document.firstChild.firstChild.nextElementSibling));
+    document.write('<br/>document.firstChild.firstChild.nextElementSibling === document.body -> '+(document.firstChild.firstChild.nextElementSibling === document.body));
+
+    document.write('<br/><br/>document.firstChild.firstChild.nextSibling -> '+(document.firstChild.firstChild.nextSibling));
+    document.write('<br/>document.firstChild.firstChild.nextSibling instanceof Node -> '+(document.firstChild.firstChild.nextSibling instanceof Node));
+    document.write('<br/>document.firstChild.firstChild.nextSibling instanceof Element -> '+(document.firstChild.firstChild.nextSibling instanceof Element));
+
+    //The Element inherits from Node
+    document.write('<br/><br/>Element inherits from Node -> Element.prototype.__proto__ === Node.prototype -> '+(Element.prototype.__proto__ === Node.prototype));
+    //The document object is the top of the node tree, and document is a Document object, and Document inherits from Node as well:
+    document.write('<br/>Document inherits from Node as well -> Document.prototype.__proto__ === Node.prototype -> '+(Document.prototype.__proto__ === Node.prototype));
+    
+    document.write('<br/><br/>After');
+</script>
+
+</html>

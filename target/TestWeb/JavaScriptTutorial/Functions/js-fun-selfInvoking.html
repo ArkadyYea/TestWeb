@@ -1,0 +1,54 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+    
+    var fun = (function() {
+    	document.write('Self Invoking function. Declaring and invoking!<br/>');
+    	return 'Bla'; 
+    })();
+    document.write('Return value from selfinvoked function: '+fun+'<br/>');
+
+    //You can also pass parameters to the self-invoking functions. It’s commonly used practice to have references to different global objects:
+    (function (a, b) {
+    	document.write('Self Invoking function with params: '+(a*b)+'<br/>');
+    }(2,3));
+
+    //We can return a function - it is a private scope like below.
+    var add = (function () {
+        var counter = 0;
+        return function () {return counter += 1;}
+    })();
+
+    add();
+    document.write('We can return a function: '+add()+'<br/>');
+    
+    //http://stackoverflow.com/questions/18203897/a-self-invoking-anonymous-function-expression
+    //A common metod is the following (called namespacing) - It created an encapsulated scope by immediately executing your function
+    //and returning the essential parts you need into your variable:
+    var yourNamespace = ( function(window, undefined){ 
+        /* private code:*/
+        var privateVar = "foobar",
+        count = 0;
+        /* the stuff you want to use outside: */
+        return {
+           val : 5,
+           publicVar : privateVar,
+           func : function() { return ++count }
+        }
+    })(this);// `this` is a reference to `window` here
+
+    document.write('<br/>'+yourNamespace.publicVar);
+    document.write('<br/>'+yourNamespace.func());
+    
+    document.write('<br/><br/>After');
+
+    
+</script>
+
+
+</html>

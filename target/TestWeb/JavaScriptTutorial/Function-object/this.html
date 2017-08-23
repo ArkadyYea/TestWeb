@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //In JS 'this' is an important keyword, although what it evaluates to depends on where it is used: 
+    //• When used outside any function, in global space, this refers to the enclosing object, which in this case is the enclosing browser window, the window object. 
+    //• When used in a function defined in the global space, what the keyword this refers to depends on how the function is called.
+    //  -When such a function is called directly (e.g. f(x)), this will refer back to the global space in which the function is defined, and in which other global functions
+    //   and variables may exist as well (or in strict mode, it is undefined).
+    //  -If a global function containing this is called as part of the event handler of an element in the document object, however,
+    //   this will refer to the calling HTML element.
+    //• When a method is called using the new keyword (e.g. var c = new Thing()) then within Thing this refers to the Thing object itself.
+    //• When a function is attached as a property of an object and called as a method of that object (e.g. obj.f(x)),
+    //  this will refer to the object that the function is contained within.
+    //  -It is even possible to manually specify this when calling a function, by using the .call() or .apply() methods of the function object.
+    //   Fe, the method call obj.f(x) could also be written as obj.f.call(obj, x). 
+    //-To work around the different meaning of this in nested functions such as DOM event handlers, it is a common idiom in JS to save the this reference
+    // of the calling object in a variable (commonly called that or self), and then use the variable to refer to the calling object in nested functions. 
+    document.write('<br/><br/>When used outside any function, in global space, this refers to the enclosing object, which in this case is the enclosing browser window, the window object: '+this);
+    
+    var myObject = { mySize : 42 };
+    var mySize = 22;
+    var getSize = function() {
+        return this.mySize; 
+    };
+
+    var r = getSize.call(myObject);
+    
+    document.write('<br/><br/>'+r);
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

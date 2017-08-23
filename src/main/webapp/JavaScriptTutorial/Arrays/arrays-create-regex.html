@@ -1,0 +1,26 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+
+    //The result of a match between a regular expression and a string can create a JavaScript array.
+    //This array has properties and elements which provide information about the match.
+    //Such an array is returned by RegExp.exec, String.match, and String.replace.
+    
+    var myRe = /d(b+)(d)/i;
+    var myArray = myRe.exec('cdbBdbsbz');
+    
+    document.write('<br/>Array1: '+myArray);
+    document.write('<br/>Array1 size: '+myArray.length);
+
+    document.write('<br/><br/>After');
+</script>
+
+
+</html>

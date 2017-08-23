@@ -1,0 +1,47 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+    //In general 'this' is calling object.
+    //window object
+    document.write(this+'<br/>');
+
+    //window object
+    function abc() {
+    	document.write(this+'<br/>');
+        return 'Arek';
+    }
+
+    abc();
+    
+    //User object
+    function User(n, s) {
+        this.name = n;
+        this.surname = s;
+        this.fun = function() {
+        	document.write('This for User: '+this.constructor.name+'<br/>');
+        }
+    } 
+    
+    var obj = new User('Arek', 'Garek');
+    obj.fun();
+
+    //Object object
+    var obj2 = {
+    	fun : function() {
+            document.write('This for Object: '+this.constructor.name+'<br/>');
+    	}
+    }
+
+    obj2.fun();
+    
+</script>
+
+
+</html>

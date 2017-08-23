@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    
+    function User(name, surname) {  
+        this.name = name;
+        this.surname = surname;
+        this.age = 1;
+    }
+
+    //We are setting new values like in an object literal. 
+    User.prototype = {
+    	phone : '555-313-231',
+    	toString : function() { return this.name+', '+this.surname; },
+    	
+        get fullName() {
+            return this.name + " " + this.surname;
+        },
+
+        set fullName(n) {
+            var names = n.split(" ");
+            this.name = names[0];
+            this.surname = names[1];
+        }
+    };
+    //Or using field notation
+    User.prototype.email = 'no email';
+    User.prototype.toString2 = function() { return this.name+', '+this.surname+', '+this.phone+', '+this.email; };
+    
+    var obj = new User('John','Smith');
+    document.write('<br/>Getter - fullName -> '+obj.fullName);
+    obj.fullName = 'Robert Alonso';
+    document.write('<br/>Setter - obj.fullName = \'Robert Alonso\'; -> '+obj.fullName);
+    document.write('<br/>Getter - fullName -> '+obj.fullName);
+    document.write('<br/><br/>toString() -> '+obj);
+    document.write('<br/><br/>new prop phone -> '+obj.phone);
+    document.write('<br/>new prop email -> '+obj.email);
+    document.write('<br/>new function toString2() -> '+obj.toString2());
+    
+</script>
+
+</html>

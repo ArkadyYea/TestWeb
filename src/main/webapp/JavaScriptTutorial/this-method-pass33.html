@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //
+    age = -123;
+    function Student (name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Student.prototype.toString = function toString () {
+        return this.name + " is " + this.age + " years old.";
+    };
+
+    
+    Student.prototype.check_drinking = function check_drinking (fn) {
+    	console.log('no context -> '+fn());
+        console.log('fn.call(this) -> '+fn.call(this));
+    };
+    
+    var me = new Student("Joshua", 26);
+    console.log(me.toString());
+
+    
+    me.check_drinking( function() {return this.age;} );
+    //fun = function() {return this.age;}
+    //console.log(me.check_drinking(fun));
+    
+    
+
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

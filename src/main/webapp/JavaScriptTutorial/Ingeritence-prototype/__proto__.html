@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //__proto__ is the actual object that is used in the lookup chain to resolve methods, etc.
+    //prototype is the object that is used to build __proto__ when you create an object with new: 
+    
+    Object.prototype.objVal = 'prop Object.objVal';
+    var objA = { 
+        a: 'prop objA.a',
+    };
+    
+    var objB = {};
+    objB.__proto__ = objA;  //If the provided value is an object or null, it changes the [[Prototype]] of the object to that value. 
+    
+    document.write('<br/>Property "a" is inherited from objA, objB.a => '+objB.a);
+    document.write('<br/>Property "objVal" is inherited from Object, objB.objVal => '+objB.objVal);
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

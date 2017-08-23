@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+    //JavaScript Version:   1.6
+    //The filter() method creates an array filled with all array elements that pass a test (provided as a function).
+    //array.filter(function(currentValue,index,arr), thisValue)
+
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+    document.write('<br/>cars -> '+cars);
+    
+    document.write('<br/>Filter every car name length > 4 -> '+cars.filter(check));
+
+    function check(el) {
+        if(el.length > 4) return true;
+        return false;
+    }
+
+    document.write('<br/><br/>After');
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    // 
+    
+    
+    function Animal(name) {
+        this.name = name;
+        this.bark = function() { console.log('Hau hau'); };
+    }
+    function Cat() {
+    }
+    //Cat.prototype = Animal.prototype;
+    Cat.prototype = Object.create(Animal.prototype);
+    Cat.prototype.constructor = Animal;
+    
+    var a = new Cat('Ark');
+    //a.bark();
+    
+    var a1 = Animal.prototype;
+    var a2 = Animal.constructor;
+    var a3 = Animal.prototype.constructor;
+    //Cat.prototype.constructor = Animal;
+    
+    //console.log(Animal.prototype);
+    //console.log(Animal.constructor.prototype);
+    console.log(Animal.prototype.constructor);
+
+    document.write('<br/>function Animal() -> '+Animal);
+    document.write('<br/>Animal.constructor -> '+Animal.constructor);
+    document.write('<br/>'+a1);
+
+    
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

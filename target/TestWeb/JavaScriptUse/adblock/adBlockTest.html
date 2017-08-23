@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en-GB">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Detecting Adblock (inline)</title>
+    </head>
+    
+    <body>
+        <h1>Detecting AdBlock</h1>
+        <p id="p1">AdBlock is disabled.</p>
+    </body>
+    
+    
+    <script>
+        //https://www.christianheilmann.com/2015/12/25/detecting-adblock-without-an-extra-http-overhead/
+        //http://stackoverflow.com/questions/4869154/how-to-detect-adblock-on-my-website
+        //The elements that adblockers avoid rendering: https://jsfiddle.net/n6e5mknz/ -> Fe: .ad_w300i, .ad_w_us_a300, .ad_warn, .ad_warning,
+        (function(){
+            var p1 = document.getElementById('p1');
+
+            var test = document.createElement('div');
+            test.innerHTML = '&nbsp;';      //no-break space, non-breakable space (NBSP), hard space, or fixed space
+            //test.className = 'bottom-ad';
+            test.className = 'ad_warn';
+            document.body.appendChild(test);
+
+            window.setTimeout(function() {
+                if (test.offsetHeight === 0) {
+                    p1.innerHTML = 'ADBLOCK IS ENABLED!';
+                    p1.style.color = 'red';
+                }
+                test.remove();
+            }, 10);     //Def. was 100
+            
+        })();
+    </script>
+    
+</html>

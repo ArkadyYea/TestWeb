@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body onload="checkIt();">
+    </body>
+    
+<script>
+    
+    //Passes a copy of reference, so when we assing a new user it has no impact on the original user.
+    function testRef(user) {
+        user = new User('Anna','Karenina');     //It is a local user, it gets destroyed after function returns 
+    }
+
+    var u1 = new User('John','Smith');
+
+    u1.toString();
+
+    testRef(u1);
+
+    u1.toString();
+
+    document.write('<br/><br/>After');
+
+    
+    function User(name, surname) {
+        this.name = name;
+        this.surname = surname;
+        this.toString = function() {
+            document.write('<br/>[User] name: '+this.name+', surname: '+surname);
+        }
+    }
+    
+</script>
+
+
+</html>

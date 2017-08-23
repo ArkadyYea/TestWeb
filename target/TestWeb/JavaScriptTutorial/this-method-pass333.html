@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //
+    age = -123;
+    function Student (name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Student.prototype.toString = function toString () {
+        return this.name + " is " + this.age + " years old.";
+    };
+
+    
+    Student.prototype.test = function () {
+    	var fn = function() {                  //local Function object. When called uses global context. 
+    		console.log('age -> '+this.age);
+        }
+    	fn();
+    	fn.call(this);
+    };
+    
+    var me = new Student("Joshua", 26);
+    console.log(me.toString());
+    me.test();
+    
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+    //Methods shift/unshift are slow, because they have to renumber whole array. splice() may also lead to renumbering. 
+    //So, using shift/unshift is generally slower than push/pop. The larger array - the more work to renumber it. 
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+
+    document.write('<br/>Array: '+cars);
+
+    //Shifting is equivalent to popping, working on the first element instead of the last.
+    document.write('<br/><br/>Shifting is equivalent to popping, working on the first element instead of the last.');
+    //The unshift() method adds a new element(s) to an array (at the beginning), and "unshifts" older elements: 
+    //The unshift() method returns the new array length.
+    var oldLength = cars.length;
+    var newLength = cars.unshift("Honda","Subaru");
+    document.write('<br/><br/>unshift() adds a new element(s) to an array (at the beginning), and "unshifts" older elements: - cars.unshift("Honda","Subaru") -> '+cars);
+    document.write('<br/>unshift() returns the new array length: Array length: '+oldLength+', length after unshift: '+newLength);
+    
+    //The shift() method removes the first array element and "shifts" all other elements to a lower index.
+    //The shift() method returns the string that was "shifted out".
+    var removed = cars.shift();
+    document.write('<br/><br/>shift() removes the first array element and "shifts" all other elements to a lower index: - cars.shift() -> '+cars);
+    document.write('<br/>shift() returns the string that was "shifted out": '+removed);
+    
+    document.write('<br/><br/>After');
+</script>
+
+</html>

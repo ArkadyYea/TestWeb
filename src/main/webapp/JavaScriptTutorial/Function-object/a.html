@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //
+    x = 22;
+    var onTimeout = function(){
+        document.write("outside x:", x);
+    };
+    
+    var o = {
+    	x:10,
+        onTimeout: function(){
+            document.write("x:", this.x); // outputs undefined
+        },
+        m: function(){
+            //setTimeout(this.onTimeout, 1); // not working
+            //setTimeout(this.onTimeout.bind(this), 1); // working
+            setTimeout.bind(this, "this.onTimeout, 1"); // working
+        }
+    }
+
+    //o.onTimeout();
+    o.m();
+        
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    document.write(2*2+2);
+    var a = { a : 'abc'};
+    document.write('<br/>'+a.a);
+
+    var text = '{ "employees" : [' +
+    '{ "firstName":"John" , "lastName":"Doe" },' +
+    '{ "firstName":"Anna" , "lastName":"Smith" },' +
+    '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+
+    var obj = JSON.parse(text);
+    //document.write('<br/>'+obj.employees[0].firstName);
+    for (var i=0 ; i<obj.employees.length; i++) {
+    	document.write('<br/>'+obj.employees[i].firstName);
+        /* var language = languages[i];
+        for(key in language) {
+            print(key+" "+language[key]);
+            LIST.add(key+" "+language[key])
+        } */
+    }
+
+    
+    document.write('<br/>'+obj.a);
+</script>
+
+</html>

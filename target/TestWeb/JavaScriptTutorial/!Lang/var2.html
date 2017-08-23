@@ -1,0 +1,36 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    document.write('Before<br/>');
+    
+    //window.global     //In HTML, the global scope is the window object: All global variables belong to the window object.
+    document.write('global: '+window.global+'<br/>');
+    document.write('nonGlobal: '+window.nonGlobal+'<br/><br/>');
+    
+    abc(4);  //Must be called to see the variables.
+    document.write('abc() called<br/><br/>');
+    
+    document.write('global: '+global+'<br/>');
+    document.write('window.global: '+window.global+'<br/>');
+    document.write('notGlobal: '+window.notGlobal+'<br/>');
+    document.write('num from abc() is local: '+window.num+'<br/>');
+    
+    document.write('<br/>After<br/>');
+
+    
+    function abc(num) {
+        var notGlobal = 'notGlobal';
+        global = 'global';  //If you assign a value to a variable that has not been declared (using var), it will automatically become a GLOBAL variable.
+    }
+    
+</script>
+
+
+</html>

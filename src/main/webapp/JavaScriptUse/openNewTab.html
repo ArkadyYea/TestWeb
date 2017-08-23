@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Window object testing</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div onclick="OpenInNewTab();">Something To Click On</div>
+    </body>
+
+
+<script>
+    //http://stackoverflow.com/questions/19851782/how-to-open-a-url-in-a-new-tab-using-javascript-or-jquery
+    //http://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window-using-javascript
+    
+    function OpenInNewTab(url) {
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
+    
+
+    document.write('<br/><br/>After');
+    
+</script>
+
+
+</html>

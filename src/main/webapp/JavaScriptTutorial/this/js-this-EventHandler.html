@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <button id='thebutton1' onclick='click_handler()'>If we write the event handler inline, this refers to the global window object</button><br/>
+        <button id='thebutton2'>When we add an event handler via JavaScript, this refers to the DOM element that generated the event.</button><br/>
+        <button id='thebutton2' onclick="click_handler2(this)">We are passing a reference of this object to the handler function.</button><br/>
+    </body>
+
+
+<script>
+    //If we write the event handler inline, this refers to the global window object:
+    function click_handler() { 
+        alert(this);    //alerts the window object 
+    }
+
+    //When we add an event handler via JavaScript, this refers to the DOM element that generated the event.
+    function addhandler() { 
+        document.getElementById('thebutton2').onclick = click_handler;  //alerts the button DOM node  
+    }
+
+    window.onload = addhandler; 
+
+    function click_handler2(who) { 
+        alert(who);    //alerts the window object 
+    }
+    
+ 
+    
+</script> 
+
+
+</html>

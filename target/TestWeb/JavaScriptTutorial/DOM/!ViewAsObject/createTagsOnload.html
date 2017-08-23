@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Window object testing</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        
+    </body>
+
+
+<script>
+    //This JavaScript sets a function to run when the document is loaded (and when the whole DOM is available for use).
+    //This function creates a new H1 element, adds text to that element, and then adds the H1 to the tree for this document:
+    
+    window.onload = function() {
+         // create a couple of elements in an otherwise empty HTML page
+         var heading = document.createElement("h1");
+         var heading_text = document.createTextNode("Big Head!");
+         heading.appendChild(heading_text);
+         document.body.appendChild(heading);
+    }    
+
+    document.writeln('Onload executes after script element')
+    
+</script>
+
+
+</html>

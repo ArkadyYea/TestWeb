@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+    //b.__proto__ = a - points directly to "a" object. When we change value of "a.a" property it affects  c.a
+    //c ---> b ---> a ---> Object.prototype ---> null
+    var a = { a: "a" }  //a.__proto__ == Object.prototype
+    var b = { b: "b" }
+    var c = { c: "c" }
+
+    b.__proto__ = a;    //b.__proto__ == a;
+    c.__proto__ = b;    //c.__proto__ == b;
+
+    document.write('<br/>c.a -> '+c.a);
+    document.write('<br/>c.b -> '+c.b);
+    document.write('<br/>c.c -> '+c.c);
+
+    document.write('<br/><br/>a.__proto__ == Object.prototype -> '+(a.__proto__ == Object.prototype));
+    document.write('<br/>b.__proto__ == a -> '+(b.__proto__ == a));
+    document.write('<br/>c.__proto__ == b -> '+(c.__proto__ == b));
+
+    a.a = 'aa'
+    //b.__proto__.a = 'aa';
+    document.write('<br/><br/>b.__proto__ = a -> points directly to "a" object. When we change value of "a.a" property it affects  c.a -> '+c.a);
+    document.write('<br/>b.__proto__.a -> '+b.__proto__.a);
+    document.write('<br/>c.__proto__.a -> '+c.__proto__.a);
+    document.write('<br/>a/b/c.__proto__.constructor -> '+a.__proto__.constructor);
+    
+    
+    document.write('<br/><br/>After');
+
+    
+    
+</script>
+
+</html>

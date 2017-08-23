@@ -1,0 +1,42 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input type="button" value="Abracadabra" onmouseover="mouseOver(this)" onmouseleave="mouseLeave(this)"><br/>
+        <input type="submit" value="Submit" onclick="submit(this)" ><br/>
+        
+    </body>
+
+
+<script>
+
+    document.write(' '+'<br/>');
+
+    eval("document.write('eval'+'<br/>');");
+
+    function abc() {
+    	for (var i = 0; i < 10; i++) {
+    	    
+    	}
+    	return i;  //i DOES exists here!
+    }
+    document.write('loop '+abc()+'<br/>');
+
+    function mouseOver(who) {
+         who.style.color = 'red';
+    }
+    function mouseLeave(who) {
+        who.style.color = 'black';
+    }
+    function submit(who) {
+        who.disabled = true;
+    }
+
+    
+</script>
+
+
+</html>

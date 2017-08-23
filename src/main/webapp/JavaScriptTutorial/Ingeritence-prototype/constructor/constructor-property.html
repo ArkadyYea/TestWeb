@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //The default value the prototype property is an object with property constructor, which is set to the function itself : Animal.prototype = { constructor: Animal } 
+    //When new Animal is called, the Animal.prototype becomes __proto__ and the constructor becomes accessible from the object
+    //Calling a.constructor actually returns a.__proto__.constructor
+    
+    //SomeClass.constructor == Function.constructor == Function.__proto__.constructor == Function.prototype.constructor == Function()
+    function Animal(name) {
+        this.name = name;
+    }
+
+    var a = new Animal('Dog');
+
+    document.write('<br/>The default value of the prototype property is an object with property constructor, which is set to the function itself, Animal.prototype.constructor -> '+Animal.prototype.constructor);
+
+    document.write('<br/><br/>-When "new Animal" is called, the Animal.prototype becomes __proto__  of the new object and the constructor property becomes accessible, a.constructor -> '+a.constructor);
+    document.write('<br/>-Calling a.constructor actually returns a.__proto__.constructor:');
+    document.write('<br/>&emsp;&emsp;a.hasOwnProperty("constructor") -> '+(a.hasOwnProperty('constructor')));
+    document.write('<br/>&emsp;&emsp;a.__proto__.hasOwnProperty("constructor") -> '+(a.__proto__.hasOwnProperty('constructor')));
+
+    document.write('<br/><br/>-Whem we change a.__proto__.constructor, a.constructor will change also:');
+    a.__proto__.constructor = Object;
+    document.write('<br/>&emsp;&emsp;a.__proto__.constructor = Object, a.constructor -> '+a.constructor);
+
+    document.write('<br/><br/>SomeClass.constructor == Function.constructor == Function() -> '+Animal.constructor);
+    document.write('<br/>&emsp;&emsp;Animal.constructor points to Function() -> '+Animal.constructor);
+    document.write('<br/>&emsp;&emsp;Object.constructor points to Function() -> '+Object.constructor);
+    document.write('<br/>&emsp;&emsp;Animal.constructor == Function.__proto__.constructor -> '+(Animal.constructor == Function.__proto__.constructor));
+    document.write('<br/>&emsp;&emsp;Animal.constructor == Function.prototype.constructor -> '+(Animal.constructor == Function.prototype.constructor));
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

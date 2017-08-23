@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <style>
+            div {
+                background-color: coral;
+                border: 1px solid;
+                padding: 50px;
+                width: 100;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="in1" onchange="toUpper()" value="abc">
+        <div id="d1" >Click me!</div>
+        <p id="p1"></p>
+    </body>
+
+<script>
+
+    document.write(' '+'<br/>');
+
+    var p1 = document.getElementById('p1');
+    var d1 = document.getElementById('d1');
+    var in1 = document.getElementById('in1');
+    in1.value = 'cba';
+
+    d1.addEventListener('click', function(e) {
+    	p1.innerHTML = 'CLIKED!';
+    }, false);
+    d1.addEventListener('dblclick', function(e) {
+        p1.innerHTML = 'DOUBLE CLICKED!';
+    }, false);
+    
+    function toUpper() {
+        in1.value = in1.value.toUpperCase(); 
+    }
+    
+    document.write(obj.fun2()+'After'+'<br/>');
+    
+</script>
+
+
+</html>

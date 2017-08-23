@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    // 
+    function Animal(name) {
+        this.name = name;
+        this.animalInfo = 'animal info';
+    }
+    
+    function Cat(name) {
+        this.name = name;
+        this.catInfo = 'cat info';
+    }
+
+    Cat.prototype = new Animal;     //We set new prototype object, it has Animal constructor
+    //Cat.prototype = Object.create(Animal.prototype);  //create() only uses the prototype without constructor (props from constr are NOT available).
+    //Cat.prototype = Object.create(new Animal);        //OK - We inherite here ALL properties from CREATED object.
+    //Cat.prototype.constructor = Cat;
+    
+    var c1 = new Cat('Katie');
+
+    document.write('<br/>Cat.prototype.constructor -> '+Cat.prototype.constructor);
+    document.write('<br/>c1.name -> '+c1.name);
+    document.write('<br/>c1.animalInfo -> '+c1.animalInfo);
+    document.write('<br/>c1.catInfo -> '+c1.catInfo);
+    
+    
+    document.write('<br/><br/>After');
+    
+</script>
+
+</html>

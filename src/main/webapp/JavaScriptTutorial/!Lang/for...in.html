@@ -1,0 +1,38 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+
+
+<script>
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+    document.write('<br/>');
+    //The for...in statement iterates over the enumerable properties of an object, in arbitrary order.     
+    var obj = { 'first' : 'John', 'second' : 'Mark', 'third' : 'Donnie', 'fourth' : 'Zork' };
+    document.write('Object for...in -> enumerates all the enumerable properties of an object<br/>');
+    for (prop in obj) {
+        document.write('Property ---> '+prop+', value ---> '+obj[prop]+'<br/>');
+    }
+    
+    
+    //Array indexes are just enumerable properties with integer names and are otherwise identical to general Object properties.
+    //There is no guarantee that for...in will return the indexes in any particular order.
+    document.write('<br/><br/>');
+
+    var obj = { "employees" : [ 'John', 'Mark', 'Donnie', 'Zork' ]};
+    var ar = obj.employees;
+
+    document.write('Array for...in -> enumerates all elements of an array<br/>');
+    for (key in ar) {
+        document.write('Key is: '+key+', value -> '+ar[key]+'<br/>');
+    }
+
+    
+    
+</script>
+
+
+</html>

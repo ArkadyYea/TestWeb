@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //Declared inline inside the object's constructor (or alternatively may be defined via var functionName=function(){...})
+    //May only be called by privileged methods (including the object's constructor).
+    
+    function Test() {
+    	globalFun = function() { return ' globalFun() called'; };          //This is global!
+
+        var privateFun = function() { return ' var privFun() called'; };
+
+        this.privilegedFun1 = function () { return privateFun() };
+        this.privilegedFun2 = function () { return globalFun() };
+    }
+
+    var t = new Test();
+    
+    document.write('<br/>-Declared inline inside the object\'s constructor (or alternatively may be defined via var functionName=function(){...})');    
+    document.write('<br/>-May only be called by privileged methods (including the object\'s constructor)');
+    document.write('<br/>&emsp;t.privilegedFun1() -> '+t.privilegedFun1());
+    document.write('<br/>&emsp;t.privilegedFun2() -> '+t.privilegedFun2());
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

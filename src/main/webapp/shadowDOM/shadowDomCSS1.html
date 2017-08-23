@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+        <title>My Test</title>
+        <style>
+            //Outside styles always win over styles defined in shadow DOM???
+            //div { color: green; }  //works for shadowed div
+        </style>
+    </head>
+    
+    <body id="body" style="font: 14px/1.4 Arial;">
+        <p id="p1" class="red">
+            <span class='red' slot="testSlot">I'm a slot 1 user!</span>
+        </p>
+    </body>
+    
+    <script>
+            let el1 = document.querySelector('#p1');
+            let shadow = el1.attachShadow({mode: 'open'});
+            
+            shadow.innerHTML = 'Text inserted by shadow.<br/>Slot 1 here: <slot name="testSlot"></slot>';
+            
+            //shadow.innerHTML += '<style> ::slotted(*) { color: red; } </style>';
+            //shadow.innerHTML += '<style> ::slotted(span) { color: red; } </style>';
+            //shadow.innerHTML += '<style> ::slotted(.red) { color: red; } </style>';
+            //shadow.innerHTML += '<style> :host ::slotted(span) { color: red; } </style>';
+            //shadow.innerHTML += '<style> ::slotted([slot=testSlot]) { color: red; } </style>';
+            shadow.innerHTML += '<style> ::slotted([slot=testSlot]) { color: red; } </style>';
+            
+    </script>
+    
+</html>

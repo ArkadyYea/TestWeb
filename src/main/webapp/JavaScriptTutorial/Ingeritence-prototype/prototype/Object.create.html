@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //The create() only uses the prototype and not the constructor.
+    //Hence, Object.create() is an excellent choice for creating an object without going through its constructor. 
+    function Animal(name) {
+        this.name = name;
+        this.animalInfo = 'animal info';    //create(Animal.prototype) only uses the prototype - this is unavailable.    
+    }
+    Animal.prototype.protoInfo = 'animal proto info';
+    
+    function Cat(name) {
+        this.name = name;
+        this.catInfo = 'cat info';
+    }
+
+    Cat.prototype = Object.create(Animal.prototype);  //create() only uses the prototype without constructor.
+    //Cat.prototype = Object.create(new Animal);        //OK - We inherite here ALL properties from object CREATED with constructor.
+    Cat.prototype.constructor = Cat;                  //Object.create DOES NOT set proper constructor.
+    
+    var c1 = new Cat('Katie');
+
+    document.write('<br/>Cat.prototype.constructor -> '+Cat.prototype.constructor);
+    document.write('<br/>c1.name -> '+c1.name);
+    document.write('<br/>c1.animalInfo (undefined if Object.create(Animal.prototype) used) -> '+c1.animalInfo);
+    document.write('<br/>c1.catInfo -> '+c1.catInfo);
+    document.write('<br/>c1.catInfo -> '+c1.protoInfo);
+
+    document.write('<br/><br/>After');
+    
+</script>
+
+</html>

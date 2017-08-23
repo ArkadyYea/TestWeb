@@ -1,0 +1,25 @@
+<html>
+    
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        
+    </head>
+    
+    <body>
+        <p id="p1">Before setTimeout.</p>
+    </body>
+    
+    
+    <script>
+        (function(){
+            var p1 = document.getElementById('p1');
+
+            window.setTimeout(function() {
+                p1.innerHTML = 'timeout invoked!';
+                p1.style.color = 'red';
+            }, 1000);
+        })();
+    </script>
+    
+</html>

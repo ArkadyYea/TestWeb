@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //We borrow a function here. Function is just an object so we are passing a reference from o1 to o2. 
+    //This function does not hold the 'this' reference to o1 object.
+    //Function is just a Function object, it takes 'this' from object that executes that function.
+    var x = 'global x';
+    
+    var o1 = {
+    	x:10,
+    	getX : function() { return this.x; }
+    }
+
+    var o2 = { x:20 }
+    o2.getX = o1.getX;
+    
+    document.write('<br/>x: '+o1.getX());
+    document.write('<br/>x: '+o2.getX());
+
+    //If a function doesn’t have context, or is not a method associated with an object, it executes in the global space.
+    var o3 = {
+        x:30,
+        getX : function() {
+            console.log(this);
+            return this.x;
+        },
+        printX : function(f) { document.write('<br/>x: '+f()); },               //This Function object is not associated with 'this', it runs in global (window)
+        //printX : function(f) { document.write('<br/>x: '+f.call(this)); },      //We associate function f with this object
+        doIt : function () { this.printX(this.getX) }                           //We pass a reference of a Function object.
+    }
+
+    o3.doIt();
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //let allows you to declare variables that are limited in scope to the block, statement, or expression on which it is used. This is unlike
+    //the var keyword, which defines a variable globally, or locally to an entire function regardless of block scope.
+    //Variables declared by let have as their scope the block in which they are defined, as well as in any contained sub-blocks. In this way, let works
+    //very much like var. The main difference is that the scope of a var variable is the entire enclosing function.
+    //At the top level of programs and functions, let, unlike var, does not create a property on the global object.
+    //Redeclaring the same variable within the same function or block scope raises a SyntaxError.
+    //When used inside a block, let limits the variable's scope to that block. Note the difference between var whose scope is inside the function where it is declared.
+    let x = 1;
+    document.write('<br/>let x = 1 -> '+x);
+    document.write('<br/>At the top level of programs and functions, let, unlike var, does not create a property on the global object, window.x -> '+window.x);
+    
+    document.write('<br/><br/>After<br/>');
+
+    
+    function abc(num) {
+        var notGlobal = 'notGlobal';
+        global = 'global';  //If you assign a value to a variable that has not been declared (using var), it will automatically become a GLOBAL variable.
+    }
+    
+</script>
+
+
+</html>

@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body id="bod" style="background: #f0f0f0;"></body>
+<script>
+    
+    document.write('');
+    
+    document.write('<br/>window instanceof Node -> '+(window instanceof Node));
+    document.write('<br/>window instanceof Element -> '+(window instanceof Element));
+    
+    document.write('<br/><br/>document instanceof Node -> '+(document instanceof Node));
+    document.write('<br/>document instanceof EventTarget -> '+(document instanceof EventTarget));
+    document.write('<br/>document instanceof Document -> '+(document instanceof Document));
+    document.write('<br/>document instanceof HTMLDocument -> '+(document instanceof HTMLDocument));
+    document.write('<br/>document instanceof Element -> '+(document instanceof Element));
+
+    var htmlEl = document.firstChild;
+    document.write('<br/><br/>htmlEl nodeName -> '+htmlEl.nodeName);
+    document.write('<br/>htmlEl instanceof Node -> '+(htmlEl instanceof Node));
+    document.write('<br/>htmlEl instanceof Document -> '+(htmlEl instanceof Document));
+    document.write('<br/>htmlEl instanceof EventTarget -> '+(htmlEl instanceof EventTarget));
+    document.write('<br/>htmlEl instanceof Element -> '+(htmlEl instanceof Element));
+    document.write('<br/>htmlEl instanceof HTMLElement -> '+(htmlEl instanceof HTMLElement));
+
+    var bodyEl = document.body.getAttributeNode('id');
+    document.write('<br/><br/>bodyAttr -> '+bodyEl);
+    document.write('<br/>bodyAttr nodeName -> '+bodyEl.nodeName);
+    document.write('<br/>bodyAttr instanceof Node -> '+(bodyEl instanceof Node));
+    document.write('<br/>bodyAttr instanceof Attr -> '+(bodyEl instanceof Attr));
+    document.write('<br/>bodyAttr instanceof EventTarget -> '+(bodyEl instanceof EventTarget));
+    document.write('<br/>bodyAttr instanceof Element -> '+(bodyEl instanceof Element));
+    document.write('<br/>bodyAttr instanceof HTMLElement -> '+(bodyEl instanceof HTMLElement));
+
+    var style = document.body.style;
+    document.write('<br/><br/>style -> '+style);
+    document.write('<br/>style instanceof EventTarget -> '+(style instanceof EventTarget));
+    document.write('<br/>style instanceof Node -> '+(style instanceof Node));
+    document.write('<br/>style instanceof Document -> '+(style instanceof Document));
+    document.write('<br/>style instanceof Element -> '+(style instanceof Element));
+    document.write('<br/>style instanceof CSS2Properties -> '+(style instanceof CSS2Properties));
+    
+    document.write('<br/><br/>After');
+</script>
+
+</html>

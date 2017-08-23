@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //http://www.bennadel.com/blog/1566-using-super-constructors-is-critical-in-prototypal-inheritance-in-javascript.htm
+    //You should always call the super constructor from the sub-class constructor to make sure 
+    //that your sub-class instance GETS A UNIQUE COPY of all properties, simple and complex.        Base.call( this ); 
+    //Because the complex objects are passed-by-reference, it doesn't return a copy of it; rather, it returns a reference to the original object
+    //t contained in the Prototype. When you then update a key within that object reference, you are altering the Prototype itself.  
+    function Animal() {
+        this.names = [];
+    }
+    
+    function Dog() {
+        //Animal.call(this);
+    }
+
+    Dog.prototype = new Animal;
+    //Dog.prototype.constructor = Animal;
+    //Dog.prototype.constructor = Dog;
+    
+    var a1 = new Dog();
+    a1.names[0] = 'Rex';
+
+    var a2 = new Dog();
+    
+    document.write('<br/>Without calling super class constructor ( Animal.call(this) ) all instances of subclasses inherit properties from Animal.prototype');
+    document.write('<br/>Complex opbjects are passed by reference, when you then update a key within that object reference, you are altering the Prototype itself.');
+    document.write('<br/>You should always call the super constructor from the sub-class constructor to make sure that your sub-class instance gets a unique copy of all properties, simple and complex.');
+    document.write('<br/>instance a1 -> '+a1.names[0]);
+    document.write('<br/>instance a2 -> '+a2.names[0]);
+    document.write('<br/>hasOwnProperty(\'names\') -> '+a2.hasOwnProperty('names'));
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    
+    function User(name, surname) {
+        this.name = name;
+        this.surname = surname;
+        this.toString = function() {
+            return 'name: '+this.name+', surname: '+this.surname+'<br/>';
+        }
+    }
+
+    var obj = new User('John','Smith');
+
+    //You can add new properties to an existing object by simply giving it a value. 
+    obj.age = 42;
+    document.write('<br/>You can add new properties to an existing object by simply giving it a value. -> obj.age: '+obj.age);
+
+    //The delete keyword deletes a property from an object.
+    delete obj.name; 
+    document.write('<br/>The delete keyword deletes a property from an object -> obj.name: '+obj.name);
+
+    //JavaScript objects inherit the properties of their prototype. 
+    //The delete keyword does not delete inherited props, but if you delete a prototype property, it will affect all objects inherited from the prototype.
+    User.prototype.abc = 'abc';
+    //delete User.prototype.abc;
+    delete obj.abc
+    document.write('<br/>JavaScript objects inherit the properties of their prototype  -> obj.abc: '+obj.abc);
+
+    
+</script>
+
+</html>

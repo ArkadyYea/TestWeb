@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    
+    function User(name, surname) {
+        this.name = name;
+        this.surname = surname;
+        this.toString = function() {
+            return 'name: '+this.name+', surname: '+this.surname+'<br/>';
+        }
+    }
+
+    var obj = new User('John','Smith');
+    
+    document.write('<br/>obj.name: '+obj.name);
+    document.write('<br/>obj["name"]: '+obj["name"]);
+    document.write("<br/>obj['name']: "+obj['name']);
+
+    var x = 'name';
+    document.write("<br/>var x = 'name'; obj[x]: "+obj[x]);
+
+    document.write('<br/>Accessing Non-Existent Property Returns “undefined” (obj.age) -> '+obj.age);
+    
+    
+</script>
+
+</html>

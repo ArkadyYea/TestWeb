@@ -1,0 +1,36 @@
+<html>
+    <head>
+        
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input type="button" value="Redirect from JS" onclick="redirect()"><br/>
+    </body>
+
+
+<script>
+
+    document.write('<br/>'+window);
+    document.write('<br/>'+history);
+    document.write('<br/>'+screen);
+    document.write('<br/>'+navigator);
+    document.write('<br/>location: '+location);
+    document.write('<br/><br/>');
+
+    var x = "Cookies Enabled: " + navigator.cookieEnabled;
+    document.write(x);
+
+    document.write('<br/>'+location.hash);
+    document.write('<br/>'+location.origin);
+    document.write('<br/>'+location.href);
+    document.write('<br/>'+location.host);
+    document.write('<br/>'+location.hostname);
+    
+    function redirect() {
+        window.location = 'https://davidwalsh.name/javascript-window-location'; //redirects to homepage
+    }
+</script>
+
+
+</html>

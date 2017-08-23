@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //All functions ( Function() , Object() , MyObject() ) inherit from Function.prototype
+    //B.prototype = new A  -  it is like   B.prototype.__proto__ = A.prototype
+    
+    B.prototype = new A();
+    B.prototype.constructor = B;
+    C.prototype = new B();
+    C.prototype.constructor = C;
+
+    var a = new A();    var b = new B();    var c = new C();
+    
+    document.write('<br/><br/>c.a -> '+c.a);
+    document.write('<br/>c.b -> '+c.b);
+    document.write('<br/>c.c -> '+c.c);
+
+    document.write('<br/><br/>c instanceof A -> '+(c instanceof A));
+    document.write('<br/>c instanceof B -> '+(c instanceof B));
+    document.write('<br/>c instanceof C -> '+(c instanceof C));
+    
+    document.write('<br/><br/>c.__proto__ == C.prototype -> '+(c.__proto__ == C.prototype));
+    document.write('<br/>c.__proto__.__proto__ == B.prototype -> '+(c.__proto__.__proto__ == B.prototype));
+    document.write('<br/>c.__proto__.__proto__.__proto__ == A.prototype -> '+(c.__proto__.__proto__.__proto__ == A.prototype));
+    document.write('<br/>c.__proto__.__proto__.__proto__.__proto__ == Object.prototype -> '+(c.__proto__.__proto__.__proto__.__proto__ == Object.prototype));
+
+    document.write('<br/><br/>All functions ( Function() , Object() , MyObject() ) inherit from Function.prototype !!!');
+    document.write('<br/>Function.__proto__ == Function.prototype -> '+(Function.__proto__ == Function.prototype));
+    document.write('<br/>Object.__proto__ == Function.prototype -> '+(Object.__proto__ == Function.prototype));
+    document.write('<br/>C.__proto__ == Function.prototype -> '+(C.__proto__ == Function.prototype));
+    document.write('<br/>Function.prototype.__proto__ == Object.prototype -> '+(Function.prototype.__proto__ == Object.prototype));
+
+    document.write('<br/><br/>After');
+
+    function A() {    this.a = 'a';    }
+    function B() {    this.b = 'b';    }
+    function C() {    this.c = 'c';    }
+    
+    
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body id="b">
+        <div>div</div>
+        <p id="p1">p1</p>
+        <p id="p2">p2</p>
+    </body>
+<script>
+    //Navigating Between Nodes - You can use the following node properties to navigate between nodes with JavaScript:
+    // • parentNode     • childNodes[nodenumber]    • firstChild    • lastChild     • nextSibling   • previousSibling 
+
+    var body = document.getElementById('b');
+    var p1 = document.getElementById('p1');
+    var attr = p1.getAttributeNode("id");
+    var txtNode = p1.firstChild; 
+    
+    
+    document.write('<br/><br/>document - nodeName -> '+document.nodeName);
+    document.write('<br/>document - parentNode -> '+document.parentNode);
+    document.write('<br/>document - childNodes.length -> '+document.childNodes.length);
+    document.write('<br/>document - firstChild.nodeName -> '+document.firstChild.nodeName);
+    document.write('<br/>document - lastChild.nodeName -> '+document.lastChild.nodeName);
+    document.write('<br/>document - nextSibling.nodeName -> '+document.nextSibling);
+    document.write('<br/>document - previousSibling.nodeName -> '+document.previousSibling);
+    
+    document.write('<br/><br/>body - nodeName -> '+body.nodeName);
+    document.write('<br/>body - parentNode -> '+body.parentNode.nodeName);
+    document.write('<br/>body - childNodes.length -> '+body.childNodes.length);
+    document.write('<br/>body - firstChild.nodeName -> '+body.firstChild.nodeName);
+    document.write('<br/>body - lastChild.nodeName -> '+body.lastChild.nodeName);
+    document.write('<br/>body - nextSibling.nodeName -> '+body.nextSibling);
+    document.write('<br/>body - previousSibling.nodeName -> '+body.previousSibling.nodeName);
+
+    document.write('<br/><br/>body - nodeName -> '+p1.nodeName);
+    document.write('<br/>p1 - parentNode -> '+p1.parentNode.nodeName);
+    document.write('<br/>p1 - childNodes.length -> '+p1.childNodes.length);
+    document.write('<br/>p1 - firstChild.nodeName -> '+p1.firstChild.nodeName);
+    document.write('<br/>p1 - lastChild.nodeName -> '+p1.lastChild.nodeName);
+    document.write('<br/>p1 - nextSibling.nodeName -> '+p1.nextSibling.nodeName);
+    document.write('<br/>p1 - previousSibling.nodeName -> '+p1.previousSibling.nodeName);
+    
+    document.write(); 
+       
+    document.write('<br/><br/>After');
+</script>
+</html>

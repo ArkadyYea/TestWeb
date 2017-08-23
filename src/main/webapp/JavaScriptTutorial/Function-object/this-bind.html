@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //A Function object always has an independent existence from any other object. 
+    // -This means that it can be evaluated in its own right and this will be set to the global object in this case.
+    // -It can also be evaluated as a property of any other object and in this case this is set to reference that object.
+    // -A Function object can also be a method for lots of different objects at the same time.
+    //Function objects are late bound to any objects that might use them as methods i.e. what this references is only determined when
+    // the function is evaluated and it can change dynamically.
+    
+    mySize = 'global mySize';
+    
+    function Abc() {
+        this.mySize = 42;
+        this.getSize = function() { return this.mySize; }               //A Function object referenced by getSize.
+        this.getSize2 = function() { return this.mySize; }.bind(this);  //A Function object referenced by getSize2 bound to object created by this constructor.
+    };
+    
+    var a = new Abc();
+    var fun1 = a.getSize;   //Late bound Function object
+    var fun2 = a.getSize2;  //Early bound Function object
+
+    document.write('<br/><br/>a.getSize -> '+a.getSize);    
+    document.write('<br/>a.getSize() -> '+a.getSize());
+
+    document.write('<br/><br/>fun1 -> '+fun1);
+    document.write('<br/>fun1() -> '+fun1());
+
+    //fun2 references a new Function object, which evaluates the original unbound function using apply. 
+    //This means that the new Function object doesn't have any of the properties of the original Function object, but this usually doesn't matter as most Function object don't have any additional custom properties.
+    a.mySize = 55;
+    document.write('<br/><br/>fun2 -> '+fun2);
+    document.write('<br/>fun2() -> '+fun2());
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    // new Animal == new Animal()    http://www.bennadel.com/blog/1566-using-super-constructors-is-critical-in-prototypal-inheritance-in-javascript.htm
+    // Animal - returns a function body
+    
+    function Animal(name) {
+        this.name = name;
+        this.sound = function() { console.log('Unknown'); };
+        this.toString = function() { return 'toString() of Animal'; };
+    }
+
+    var a1 = new Animal;
+    var a2 = new Animal();
+    var a3 = new Animal('Dog');
+
+    document.write('<br/>instance a1 -> '+a1);
+    document.write('<br/>instance a2 -> '+a2.name);
+    document.write('<br/>instance a3 -> '+a3.name);
+
+    document.write('<br/><br/>Animal -> '+Animal);
+    document.write('<br/>a1.constructor -> '+a1.constructor);
+    document.write('<br/>Animal.__proto__.constructor -> '+Animal.__proto__.constructor);
+    document.write('<br/>Animal.constructor -> '+Animal.constructor);
+    document.write('<br/>Animal.prototype.constructor -> '+Animal.prototype.constructor);
+
+    document.write('<br/><br/>Animal instanceof Function -> '+(Animal instanceof Function));
+    document.write('<br/>Animal instanceof Object -> '+(Animal instanceof Object));
+    document.write('<br/>Animal instanceof Array -> '+(Animal instanceof Array));
+
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    // 
+    document.write('<br/><br/>');
+
+    var mySize = 'global mySize'; 
+    
+    var globalRef = {
+    	//mySize : 'local mySize',
+    	a : function() { return this.mySize; }
+    }
+    
+    var myObject = {
+        mySize : 42,
+        getSize : function() {
+            return this.mySize; 
+        }
+    }
+    
+    
+    document.write('<br/><br/>'+globalRef.a());
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

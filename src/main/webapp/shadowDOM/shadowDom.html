@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+        <title>My Test</title>
+    </head>
+    
+    <body id="body" style="font: 14px/1.4 Arial;">
+        <p id="el"></p>
+        <p id="el2"></p>
+    </body>
+    <script>
+    
+        // create shadow DOM on the <p> element above
+        var el = document.querySelector('#el');
+        ////open. Specifies open encapsulation mode.It means elements of the shadow root are accessible from an outside world using element.shadowRoot
+        var shadow = el.attachShadow({mode: 'open'});
+
+        shadow.innerHTML = '<span>New text in the paragraph.</span>';
+        //shadow.innerText = '<span>Here is some new text</span>';
+        //shadow.textContent = '<span>Here is some new text</span>';
+        
+        //It's okay. el.shadowRoot returns a shadow root if it is open.
+        console.log("el.shadowRoot === shadow -> "+(el.shadowRoot === shadow));
+
+        console.log('el.shadowRoot.host is element itself:');
+        console.log(el.shadowRoot.host);
+
+        
+        var el2 = document.querySelector('#el2');
+        var shadow2 = el2.attachShadow({mode: 'closed'})
+        //el2.shadowRoot is hidden.
+        console.log("el2.shadowRoot === shadow2 -> "+(el2.shadowRoot === shadow2));
+
+        
+    </script>
+    
+</html>

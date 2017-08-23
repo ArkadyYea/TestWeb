@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+    //JavaScript Version:   1.8
+    //reduce() reduces the array to a single value.
+    //The reduce() method executes a provided function for each value of the array (from left-to-right).
+    //The return value of the function is stored in an accumulator (result/total).
+    //array.reduce(function(total,currentValue,currentIndex,arr),initialValue)
+
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+    document.write('<br/>cars -> '+cars);
+    
+    var newCars = cars.reduce(check);
+    document.write('<br/>cars.reduce(check) -> '+newCars);
+
+    function check(total, item) {
+        return total+'+'+item;
+    }
+
+    document.write('<br/><br/>After');
+</script>
+
+</html>

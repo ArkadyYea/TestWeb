@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    
+    var obj1 = { a: 1 };
+    var obj2 = Object.create(obj1);
+    obj2.b = 2;
+     
+    document.write('obj.hasOwnProperty("propName") - returns true if the obj has a property named propName, else false.');
+    document.write('<br/>own property? - obj1.a: '+obj1.hasOwnProperty("a"));
+    document.write('<br/>own property? - obj1.b: '+obj1.hasOwnProperty("b"));
+    document.write('<br/>own property? - obj2.a: '+obj2.hasOwnProperty("a"));
+    document.write('<br/>own property? - obj2.b: '+obj2.hasOwnProperty("b"));
+
+    //"propName" in obj  - returns true if property named 'propName' is obj's own property or it is a property in obj's prototype chain. Else, false. 
+    document.write('<br/><br/>"propName" in obj  - returns true if property named "propName" is obj\'s own property or it is a property in obj\'s prototype chain. Else, false.');
+    document.write('<br/>"a" in obj1 -> '+('a' in obj1 ));
+    document.write('<br/>"a" in obj2 -> '+('a' in obj2 ));
+    document.write('<br/>"b" in obj1 -> '+('b' in obj1 ));
+    document.write('<br/>"b" in obj2 -> '+('b' in obj2 ));
+
+    document.write('<br/><br/>When you set a property, it does not touch the prototype chain. If the object has the property, its value is modified. If the object does not have the property, it\'s created for the current object.');
+    document.write('<br/>own property? - obj2.a: '+obj2.hasOwnProperty('a')+', value: '+obj2.a);
+    document.write('<br/>We set -> obj2.a = 11');
+    obj2.a = 11;
+    document.write('<br/>own property? - obj2.a: '+obj2.hasOwnProperty('a')+', value: '+obj2.a);
+</script>
+
+</html>

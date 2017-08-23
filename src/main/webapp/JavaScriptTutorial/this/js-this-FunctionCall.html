@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //If we dont provide a context by new, nor we dont give a context in the form of an object
+    //this defaults to reference the most global thing it can: for web pages, this is the window object.
+    
+    var the_answer = 142;
+    document.write(this+'<br/>');
+    document.write('this.the_answer: '+this.the_answer+'<br/>');
+    document.write('window.the_answer: '+window.the_answer+'<br/><br/>');
+    
+    function ask_question () { 
+        return this.the_answer; 
+    };
+
+    document.write('ask_question(): '+ask_question()+'<br/>');
+    
+</script>
+
+
+</html>

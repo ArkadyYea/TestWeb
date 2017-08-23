@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input id="b1" type="button"  value="Click" onclick="fun()" style='background-color: yellow;' />    
+    </body>
+
+
+<script>
+    document.write('<br/>');
+    var b1 = document.getElementById('b1');
+    document.write('<br/>Button id -> '+b1.id);
+    document.write('<br/>Button type -> '+b1.type);
+    document.write('<br/>Button value -> '+b1.value);
+    document.write('<br/>Button style -> '+b1.style);
+    document.write('<br/>Button style.backgroundColor -> '+b1.style.backgroundColor);
+    document.write('<br/>Button onclick -> '+b1.onclick);
+
+    document.write('<br/><br/>After<br/>');
+
+    function fun() {
+        console.log('button clicked');
+    }
+</script>
+    
+    
+</html>

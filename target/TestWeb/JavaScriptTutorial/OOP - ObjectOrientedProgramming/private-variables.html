@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //Declared with the 'var' keyword inside the object, and can only be accessed by private functions and privileged methods.
+    
+    function Test() {
+    	global = 'this is global';
+        var priv = 'private';
+        var privateFun = function() { return ' var privFun() called - I have access to the priv property -> '+priv; };
+
+        this.helperPrivilegedFunctionToCallPrivateFunfction = function () { return privateFun() };
+        this.privilegedFun = function() { return ' this.privilegedFun() called - I have access to the priv property -> '+priv; };
+    }
+
+    var t = new Test();
+    
+    document.write('<br/>-Declared with the "var" keyword inside the object. t.priv -> '+t.priv);    
+    document.write('<br/>-Can only be accessed by private functions and privileged methods.');
+    document.write('<br/>&emsp;t.privateFun() -> '+t.privateFun);
+    document.write('<br/>&emsp;t.helperPrivilegedFunctionToCallPrivateFunfction() -> '+t.helperPrivilegedFunctionToCallPrivateFunfction());
+    document.write('<br/>&emsp;t.privilegedFun() -> '+t.privilegedFun());
+    
+    document.write('<br/><br/>After<br/>');
+</script>
+    
+    
+</html>

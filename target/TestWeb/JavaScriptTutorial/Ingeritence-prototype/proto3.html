@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    // 
+    
+    
+    var a = new A();
+    //Rabbit.prototype = a;
+    //Rabbit.prototype = Object.create(A.prototype);
+    //Rabbit.prototype.constructor = A;       // subclass extends superclass
+    
+    var rabbit = new Rabbit('John')
+
+    document.write('<br/>eats: '+rabbit.constructor);
+    document.write('<br/>eats: '+Rabbit.prototype.constructor);
+
+    rabbit.__proto__ = a ;
+    document.write('<br/>eats: '+ (Object.getPrototypeOf(rabbit) === rabbit.__proto__));
+    document.write('<br/>eats: '+ (rabbit.__proto__.constructor));
+    document.write('<br/>eats: '+ (rabbit.__proto__.__proto__.constructor));
+    document.write('<br/>eats: '+ (rabbit.__proto__.__proto__.__proto__.constructor)); 
+    ;
+    
+    document.write('<br/><br/>After');
+    
+    function A() {
+    	this.a = 'a';
+        this.eats = 'food';
+    }
+
+    function Rabbit(name) { 
+        this.name = name
+        //A.call(this);                       // call super constructor.
+    }
+    
+</script>
+
+</html>

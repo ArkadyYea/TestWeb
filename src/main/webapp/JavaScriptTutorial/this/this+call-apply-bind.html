@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+
+<script>
+    //In JavaScript we can run any function in any context. 
+    //Using JavaScript’s ‘call’ , ‘apply’ , 'bind' methods which are available on all functions because they exist on the ‘Function’ prototype. 
+    //They allow us to run a function in a specific context which we provide as the first parameter, along with any arguments we wish to pass to the function. 
+    
+    //function call (thisObject, args)          //call executes the function immediately!!!
+    //myFunction.call(objectForThis, arguments) 
+    //bind performs the same task as call, but bind returns a function reference that can be used later, rather than the result of an immediate execution
+
+    var a = {
+        abc : 6
+    };
+    
+    function multiply(n) {
+        return this.abc * n;
+    }
+    
+    document.write('<br/>call(a, 6): '+multiply.call(a, 6));
+    document.write('<br/><br/>apply(a, [7]) (arguments provided as an array): '+multiply.apply(a, [7]));
+
+    var doIt = multiply.bind(a, 8);
+    document.write('<br/><br/>bind returns a function reference that can be used later: '+doIt());
+    document.write('<br/>bind returns a function reference that can be used later: '+(multiply.bind(a, 9))());
+    
+    document.write('<br/>After<br/>');
+</script>
+
+
+</html>

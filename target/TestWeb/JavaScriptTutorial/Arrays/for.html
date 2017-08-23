@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+    //'Holes' are printed as 'undefined'.
+    
+    var fruits, text, fLen, i;
+
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits[5] = 'Peach';
+    
+    fLen = fruits.length;
+    text = "<ul>";
+    for (i = 0; i < fLen; i++) {
+        text += "<li>" + fruits[i] + "</li>";
+    } 
+    document.write(text);
+    
+    document.write('<br/><br/>After');
+
+
+    
+    
+</script>
+
+
+</html>

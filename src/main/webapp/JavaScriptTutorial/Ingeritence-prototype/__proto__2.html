@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+<script>
+    //
+    
+    function Cat() {}
+    var c = new Cat();
+
+    document.write('<br/><br/>Cat.__proto__ == Function.prototype -> '+(Cat.__proto__ == Function.prototype));
+    document.write('<br/>Cat.__proto__ == Object.prototype -> '+(Cat.__proto__ == Object.prototype));
+
+    document.write('<br/><br/>Cat.prototype == Function.prototype -> '+(Cat.prototype == Function.prototype));
+    document.write('<br/>Cat.prototype == Object.prototype -> '+(Cat.prototype == Object.prototype));
+    
+    document.write('<br/><br/>c.__proto__ == Function.prototype -> '+(c.__proto__ == Function.prototype));
+    document.write('<br/>c.__proto__ == Cat.prototype -> '+(c.__proto__ == Cat.prototype));
+
+    document.write('<br/><br/>c.prototype == Function.prototype -> '+(c.prototype == Function.prototype));
+    document.write('<br/>c.__proto__ == Cat.prototype -> '+(c.__proto__ == Cat.prototype));
+    
+    document.write('<br/><br/>After');
+    
+    
+</script>
+
+</html>

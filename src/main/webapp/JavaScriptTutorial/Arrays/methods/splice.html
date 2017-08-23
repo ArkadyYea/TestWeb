@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+<script>
+    //Methods shift/unshift are slow, because they have to renumber whole array. splice() may also lead to renumbering. 
+    //So, using shift/unshift is generally slower than push/pop. The larger array - the more work to renumber it. 
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes"];
+    document.write('<br/>Array: '+cars);
+    //The splice() method can be used to add new items to an array: 
+    cars.splice(2, 0, "Honda", "Porsche");
+    document.write('<br/>splice() method can be used to add new items to an array - cars.splice(2, 0, "Honda", "Porsche"); -> '+cars);
+    document.write('<br/>The first parameter (2) defines the position where new elements should be added (spliced in).'); 
+    document.write('<br/>The second parameter (0) defines how many elements should be removed.');
+    document.write('<br/>The rest of the parameters ("Honda", "Porsche") define the new elements to be added.');
+
+    //Using splice() to Remove Elements
+    //With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array:
+    cars.splice(0, 2);
+    document.write('<br/><br/><br/>splice() can be used to remove elements without leaving "holes" in the array - cars.splice(0, 2); -> '+cars);
+    document.write('<br/>The first parameter (0) defines the position where new elements should be added (spliced in).');
+    document.write('<br/>The second parameter (2) defines how many elements should be removed.');
+    document.write('<br/>The rest of the parameters are omitted. No new elements will be added.'); 
+    
+
+    document.write('<br/><br/>After');
+</script>
+
+</html>

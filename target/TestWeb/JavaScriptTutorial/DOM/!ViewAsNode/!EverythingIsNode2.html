@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="div1">
+            <p id="p1">This is a paragraph.</p>
+        </div>
+    </body>
+<script>
+    
+    document.write('<br/>document instanceof Node -> '+(document instanceof Node));
+    document.write('<br/>document instanceof Element -> '+(document instanceof Element));
+
+    document.write('<br/><br/>document.body instanceof Node -> '+(document.body instanceof Node));
+    document.write('<br/>document.body instanceof Element -> '+(document.body instanceof Element));
+
+    document.write('<br/><br/>document.createElement("div") instanceof Node -> '+(document.createElement("div") instanceof Node));
+    document.write('<br/>document.createElement("div") instanceof Element -> '+(document.createElement("div") instanceof Element));
+    
+    //var el1 = document.createElement('div');
+    //var el1 = document.getElementById('div1');
+    //var el1 = document.getElementById('p1');
+    var el1 = document.getElementById('p1').firstChild;
+    
+    document.write('<br/><br/>el instanceof Node -> '+(el1 instanceof Node));
+    document.write('<br/>el instanceof Element -> '+(el1 instanceof Element));
+    document.write('<br/>el1.nodeName -> '+el1.nodeName);
+    document.write('<br/>el1.nodeValue -> '+el1.nodeValue);
+    document.write('<br/>el1.nodeType -> '+el1.nodeType);
+    
+    document.write('<br/><br/>After');
+</script>
+
+</html>

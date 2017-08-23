@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    
+    <body>
+        <form id="frm1" action="form_action.asp">
+            First name: <input type="text" name="fname" value="Donald"><br>
+            Last name: <input type="text" name="lname" value="Duck"><br><br>
+            <input type="button" value="Submit">
+        </form> 
+
+        <p>Click "Try it" to display the value of each element in the form.</p>
+
+        <button onclick="myFunction()">Try it</button>
+
+        <p id="demo"></p>
+    </body>
+
+<script>
+    //HTML objects, object collections, and properties
+    //document.anchors, document.applets, document.baseURI, document.body, document.cookie, document.doctype, document.documentElement,
+    //document.documentMode, document.documentURI, document.domain, document.domConfig, document.embeds, document.forms, document.head,
+    //document.images, document.implementation, document.inputEncoding, document.lastModified, document.links, document.readyState,
+    //document.referrer, document.scripts, document.strictErrorChecking, document.title, document.URL
+    function myFunction() {
+        //var x = document.forms["frm1"];   //This is an object.
+        var x = document.forms.frm1;
+        var text = "";
+        var i;
+        for (i = 0; i < x.length ;i++) {
+            text += x.elements[i].value + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+
+    var txt1 ='';
+    var txt2 ='';    
+
+    for (prop in document.forms) {
+        txt1 += prop+', ';
+        txt2 += document.forms[prop]+', ';
+    }
+    document.write('<br/> '+txt1);
+    document.write('<br/> '+txt2);
+
+    document.write('<br/><br/>After');
+    
+</script>
+
+
+
+    
+
+</html>

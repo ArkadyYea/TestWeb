@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <body></body>
+
+<script>
+    document.write('Before<br/>');
+    //A function can access all variables defined inside the function.
+    ////Global and local variables with the same name are different variables. Modifying one, does not modify the other.
+    
+    //In this example, a is a local variable. 
+    //A local variable can only be used inside the function where it is defined. It is hidden from other functions and other scripting code. 
+    //Local variables have short lives. They are created when the function is invoked, and deleted when the function is finished. 
+    function myFunction1() {
+        var a = 4;
+        return a * a;
+    }
+    myFunction1();
+    document.write('A local variable can only be used inside the function where it is defined: '+window.a);
+
+    //In this example, a is a global variable. 
+    //In a web page, global variables belong to the window object 
+    //Global variables can be used (and changed) by all scripts in the page (and in the window). 
+    //Global variables live as long as your application (your window / your web page) lives. 
+    var a = 4;
+    function myFunction2() {
+        b = 10;
+        return a * a;
+    }
+
+    //Variables created without the keyword var, are always global, even if they are created inside a function.
+    myFunction2();  //Must be called to see var b. 
+    document.write('<br/>Variables created without the keyword var, are always global: '+window.b);
+    
+    
+    document.write('<br/>After<br/>');
+    
+    
+</script>
+
+
+</html>
