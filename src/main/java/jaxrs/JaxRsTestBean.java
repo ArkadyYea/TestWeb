@@ -1,6 +1,6 @@
 package jaxrs;
 
-import injectionPoint.User;
+import injection.point.User;
 
 import java.util.ArrayList;
 import java.util.List;

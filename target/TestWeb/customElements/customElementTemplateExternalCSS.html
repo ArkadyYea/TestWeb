@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+        <title>My Test</title>
+        <style>
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    
+    <body id="body" style="font: 14px/1.4 Arial;">
+        <div style="height: 300px; border: solid 1px black;">
+            <from-template></from-template>
+        </div>
+    </body>
+
+    <template id="my-template">
+        <style>
+            @import url( '../css/external.css' );
+            p { color: red; border: solid 1px brown; width: 340px; padding: 5px; text-align: center; }
+        </style>
+        <p class="myPar">I'm in Shadow DOM, using a &lt;template&gt;.</p>
+    </template>
+    
+    <script>
+        //Outside styles win. This allows users to override your top-level styling from the outside.
+        customElements.define('from-template', class extends HTMLElement {
+            constructor() {
+                super();    //Always call super() first.
+                let shadowRoot = this.attachShadow({mode: 'open'});
+                let t = document.querySelector('#my-template');
+                let instance = t.content.cloneNode(true);
+                shadowRoot.appendChild(instance);
+            }
+        });
+    </script>
+
+</html>

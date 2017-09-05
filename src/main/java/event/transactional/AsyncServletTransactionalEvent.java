@@ -22,20 +22,20 @@ public class AsyncServletTransactionalEvent extends HttpServlet {
 	private Event<Transporter> event;
 	
 	@Inject
-	EJBWithAsyncMethod ejbw;
+	EJBForEventWithAsyncMethod ejbw;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		AsyncContext startAsync = request.startAsync(request,response);
+		AsyncContext asyncCtx = request.startAsync(request,response);
 		
 		ejbw.async( ()->{
 			try {
-				PrintWriter pw = startAsync.getResponse().getWriter();
+				PrintWriter pw = asyncCtx.getResponse().getWriter();
 				pw.println("Test Fired<br/>");
 				pw.flush();
 				
 				//event.fire("Test Fire");
-				event.fire(new Transporter("Test Fired", startAsync));
+				event.fire(new Transporter("Test Fired", asyncCtx));
 			
 				Thread.sleep(200);
 				
@@ -47,7 +47,7 @@ public class AsyncServletTransactionalEvent extends HttpServlet {
 				}
 				
 				//event.fire("Test Fire No Exception");
-				event.fire(new Transporter("Test Fire No Exception", startAsync));
+				event.fire(new Transporter("Test Fire No Exception", asyncCtx));
 				
 				pw.println("Test Fired No Exception<br/>");
 				pw.flush();
@@ -60,7 +60,7 @@ public class AsyncServletTransactionalEvent extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				startAsync.complete();
+				asyncCtx.complete();
 			}
 		});
 	}
