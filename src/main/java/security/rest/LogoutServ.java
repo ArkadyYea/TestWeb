@@ -18,12 +18,20 @@ public class LogoutServ extends HttpServlet {
 		response.getWriter().println("<h2>Log out</h2>");
 		response.getWriter().println("<br/>");
 		
-		HttpSession session  = request.getSession(false);
-		session.invalidate();
+		System.out.println("-----------------------------------");
 		
+		HttpSession session  = request.getSession(false);
+		if(session != null) {
+			System.out.println("Session NOT null "+session.getId());
+			session.invalidate();
+			if(request.getSession(false) == null) {
+            	System.out.println("Session NULL");
+            }
+		} else {
+			System.out.println("Session NULL");
+		}
 		request.logout();
 		
 		System.out.println("Logged out");
 	}
-	
 }

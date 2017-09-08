@@ -18,10 +18,7 @@
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
 
-	<session-config>
-		<session-timeout>30</session-timeout>
-	</session-config>
-
+	
 	<welcome-file-list>
 		<welcome-file>index.xhtml</welcome-file>
 	</welcome-file-list>
@@ -30,6 +27,25 @@
 		<exception-type>javax.faces.application.ViewExpiredException</exception-type>
 		<location>/index.xhtml</location>
 	</error-page>
+    
+    <session-config>
+        <session-timeout>1</session-timeout>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+<!--  
+    <login-config>
+        <auth-method>FORM</auth-method>
+     <form-login-config>
+       <form-login-page>/basicAuth/auth.html</form-login-page>
+       <form-error-page>/index.xhtml</form-error-page>
+     </form-login-config>
+   </login-config>
+
+<login-config>
+  <auth-method>BASIC</auth-method>
+ </login-config> -->
+    
     
     <security-constraint>
         <web-resource-collection>
