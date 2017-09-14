@@ -3,7 +3,6 @@ package jaxrs.parameters;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonString;
-import javax.json.JsonValue;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -11,8 +10,12 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.sax.SAXSource;
+import javax.xml.transform.stream.StreamSource;
+
+import org.w3c.dom.Document;
 
 import abc.User;
 
@@ -52,21 +55,24 @@ public class JaxRsPost {
 	
 	
 	@Path("xml")
+	@GET
+    @Produces(MediaType.TEXT_XML)
+	public Response xmlProd() {
+		User user = new User("John","Smith");
+		return Response.ok(user).build();
+	}
+	
+	@Path("xmlConsumer")
 	@POST
     @Consumes(MediaType.APPLICATION_XML)
 	public Response xmlCons(User u) {
 		System.out.println(u);
-		return Response.ok(u, MediaType.TEXT_HTML).build();
+		return Response.ok("User consumed -> "+u).build();
 	}
 	
-	@Path("xml")
-	@GET
-    @Produces(MediaType.TEXT_XML)
-	public Response xmlProd() {
-		//String res = "JsonArray, name: "+name.getString()+", surname: "+surname.getString();
-		return Response.ok(new User("John","Smith")).build();
-		//return new User("John","Smith");
-	}
+	
+	
+
 	
 	
 	@Path("form")
@@ -80,6 +86,31 @@ public class JaxRsPost {
 	}
 	
 	
-	
+	//https://jersey.github.io/documentation/latest/media.html#d0e8603
+	//Low Level XML support
+	@POST
+	@Path("xmlDocument")
+	@Consumes(MediaType.APPLICATION_XML)
+	public Document getDocument(Document document) {
+	    return document;
+	}
+	@POST
+	@Path("xmlStream")
+	@Consumes(MediaType.APPLICATION_XML)
+	public StreamSource getStreamSource(StreamSource streamSource) {
+	    return streamSource;
+	}
+	@POST
+	@Path("xmlSAX")
+	@Consumes(MediaType.APPLICATION_XML)
+	public SAXSource getSAXSource(SAXSource saxSource) {
+	    return saxSource;
+	}
+	@POST
+	@Path("xmlDOM")
+	@Consumes(MediaType.APPLICATION_XML)
+	public DOMSource getDOMSource(DOMSource domSource) {
+	    return domSource;
+	}
 	
 }

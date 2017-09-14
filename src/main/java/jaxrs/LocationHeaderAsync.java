@@ -52,10 +52,7 @@ public class LocationHeaderAsync {
 		//System.out.println(info.getAbsolutePath());
 		//System.out.println(info);
 		//return Response.created(info.getAbsolutePath()).entity("async").build();
-		return Response.created(getInfo().getAbsolutePath()).entity("async").build();
+		return Response.created(info.getAbsolutePath()).entity("async").build();
 	}
 	
-	private UriInfo getInfo() {
-		return info;
-	}
 }

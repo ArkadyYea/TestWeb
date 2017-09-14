@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<h3>JAX-RS Upload File Test</h3>
+
+ 
+    <form action="/TestWeb/res/file/upload" method="post" enctype="multipart/form-data">  
+        <p>Select a file to upload:</p>
+        <input type="file" name="file" size="60" onclick="getLocation();" />
+        <br/><br/>
+        <input type="submit" value="Upload File"  />  
+    </form>
+    
+    <script>
+        function getLocation() {
+            console.log(document.location.origin);
+            console.log(document.location.pathname);
+            console.log(document.location.host);
+            console.log(document.location.hostname);
+        }
+    </script>
+</body>
+</html>

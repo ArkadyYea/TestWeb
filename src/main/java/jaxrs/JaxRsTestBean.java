@@ -18,6 +18,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -39,10 +40,14 @@ public class JaxRsTestBean {
 	}
 
 	@GET
-	@Path("jsons")		//Server error
+	@Path("jsons")		//Server error if AL set as entity: MessageBodyWriter not found for media type=application/json, type=class java.util.ArrayList
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response userJSONArray() {
-		return Response.ok(getUsers()).build();
+		List<User> users = getUsers();
+		//User[] usersArr = users.toArray(new User[users.size()]);				//ok
+		//User[] usersArr = users.stream().toArray(User[]::new);
+		GenericEntity<List<User>> ge = new GenericEntity<List<User>>(users) {};	//ok
+		return Response.ok(ge).build();
 	}
 	
 	@GET

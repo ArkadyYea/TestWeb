@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 
-@WebFilter(filterName = "TimeOfDayFilter", urlPatterns = {"/*"}, initParams = {  @WebInitParam(name = "mood", value = "awake")})
+@WebFilter(filterName = "TimeOfDayFilter", urlPatterns = {"/*"}, initParams = {  @WebInitParam(name = "mood", value = "awake")} , asyncSupported=true)
 public class ServletFilterTest implements Filter {
 
 	@Override
