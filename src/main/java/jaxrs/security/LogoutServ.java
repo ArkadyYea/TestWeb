@@ -1,4 +1,4 @@
-package security.rest;
+package jaxrs.security;
 
 import java.io.IOException;
 

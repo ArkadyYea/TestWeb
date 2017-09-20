@@ -1,4 +1,4 @@
-package security.rest;
+package jaxrs.stuff;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;

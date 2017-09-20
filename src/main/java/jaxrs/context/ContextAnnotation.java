@@ -1,6 +1,7 @@
-package security.rest;
+package jaxrs.context;
 
 import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -25,62 +26,11 @@ import javax.ws.rs.ext.Providers;
 
 //@Context - Application, UriInfo, Request, HttpHeaders, SecurityContext, Providers
 @SuppressWarnings("unused")
-//@DeclareRoles("Admins")
-@Path("secured")
-public class RestSecured {
-	
-	@GET
-	@Produces(MediaType.TEXT_HTML)
-	public Response getSecured() {
-		System.out.println("-----------------------------------");
-		System.out.println("Call From Secured path");
-		String str = "<h3>From Secured</h3>";
-		
-		if(req.getSession(false) == null) {
-			System.out.println("Session NULL");
-			return Response.status(Status.UNAUTHORIZED) .build();
-		}
-		return Response.ok(str).cookie(new NewCookie("myCokieFromSecured", "myCookieVal")).build();
-	}
-	
-	
-	@GET
-	@Path("secured2")
-	@Produces(MediaType.TEXT_HTML)
-	public Response getSecured2() {
-		System.out.println("Called From Secured2 ");
-		String str = "<h3>From Secured 2</h3>";
-		return Response.ok(str).build();
-	}
+@Path("context")
+public class ContextAnnotation {
 	
 	@Context
 	HttpSession ses;
-	
-	@Path("KillSession")
-	@GET
-	@Produces(MediaType.TEXT_HTML)
-	public Response killSession() {
-		String str = "<h3>Kill Session</h3>";
-		//ses.invalidate();
-		//ctx.
-		
-		javax.servlet.http.Cookie[] cookies = req.getCookies();
-		for(javax.servlet.http.Cookie c : cookies) {
-			if(c.getName().equals("JSESSIONID")) {
-				System.out.println("JSESSIONID found");
-				c.setMaxAge(0);
-				res.addCookie(c);
-			}
-		}
-		
-//		Cookie cookie = head.getCookies().get("JSESSIONID");
-//		if(cookie != null) {
-//			
-//		}
-		
-		return Response.ok(str).build();
-	}
-	
 	
 	@Context
 	ServletContext ctx;
@@ -93,7 +43,6 @@ public class RestSecured {
 		String str = "<h3>ServletContext</h3>";
 		return Response.ok(str).build();
 	}
-	
 	
 	@Context
 	SecurityContext sc;

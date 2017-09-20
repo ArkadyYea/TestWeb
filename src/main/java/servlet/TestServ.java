@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import security.rest.SessionCounterListener;
+import jaxrs.stuff.SessionCounterListener;
 
 @WebServlet(urlPatterns="/TestServ")
 public class TestServ extends HttpServlet {

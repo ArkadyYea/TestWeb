@@ -22,21 +22,19 @@ public class JAXRSConfig extends Application {
 	@Override
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> resources = new HashSet<Class<?>>();
+
+        //Adding additional features. Here working with multipart/file
         resources.add(MultiPartFeature.class);
         
-        //Woring with multipart/file
-        //Need to add this OR properties below! Otherwise Exception: No injection source found for a parameter of type public javax.ws.rs.core.Response ...
-        //No, need this below to work (if package is not listed, it is NOT REACHABLE (404))
-        //resources.add(JaxRsFileUpload.class);
-
-        // Add additional features such as support for Multipart.
-        resources.add(MultiPartFeature.class);
-
         return resources;
     }
 	
-	//If we set jaxrs, fe, it works for jaxrs.file too
-	//We can weparate packages with ','.
+	
+	//-If we override getClasses() or getSingletons() of Application class (fe to use multipart) we HAVE TO add ALL classes manually in these methods
+	// or use getProperties() with properties.put("jersey.config.server.provider.packages", "jaxrs, security, more packages");
+	// and put all the packages there (coma or semicolon separated). By default, Jersey will recursively scan the sub-packages as well. 
+	 
+    //-If package is not listed, it is NOT REACHABLE (404)
 	@Override
     public Map<String, Object> getProperties() {
         Map<String, Object> properties = new HashMap<String, Object>();

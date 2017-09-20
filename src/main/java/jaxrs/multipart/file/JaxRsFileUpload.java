@@ -35,7 +35,9 @@ public class JaxRsFileUpload {
 		//String str = "File uploaded: "+fileName+"\nFirst line of uploaded file: "+sc.nextLine();
 		//sc.close();
 		
-		String str = "File uploaded: "+fileName;;
+		String str = "File uploaded: "+fileName;
+		System.out.println(str);
+		
 		saveFile(is, "d:/aa/"+fileName);
 		
 		return Response.ok(str).build();

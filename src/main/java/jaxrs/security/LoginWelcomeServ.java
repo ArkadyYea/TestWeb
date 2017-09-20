@@ -1,4 +1,4 @@
-package security.rest;
+package jaxrs.security;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns="/Welcome")
-public class LoginWelcome extends HttpServlet {
+public class LoginWelcomeServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
     

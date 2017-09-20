@@ -1,4 +1,4 @@
-package jaxrs;
+package jaxrs.stuff;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;

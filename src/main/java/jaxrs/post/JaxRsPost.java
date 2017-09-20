@@ -1,4 +1,4 @@
-package jaxrs.parameters;
+package jaxrs.post;
 
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -69,10 +69,6 @@ public class JaxRsPost {
 		System.out.println(u);
 		return Response.ok("User consumed -> "+u).build();
 	}
-	
-	
-	
-
 	
 	
 	@Path("form")

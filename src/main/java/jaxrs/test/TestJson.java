@@ -1,4 +1,4 @@
-package jaxrs;
+package jaxrs.test;
 
 import injection.point.User;
 
@@ -13,7 +13,9 @@ import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonReader;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.container.AsyncResponse;
@@ -24,19 +26,20 @@ import javax.ws.rs.core.Response;
 
 @Path("test")
 @Stateless
-public class JaxRsTestBean {
+public class TestJson {
 	
-	@GET
-	@Produces(MediaType.TEXT_HTML)
-	public String basicTest() {
-		return "This is info from res/test REST";
-	}
-
 	@GET
 	@Path("json")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response userJSON() {
 		return Response.ok(getUsers().get(0)).build();
+	}
+	
+	@POST
+	@Path("json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response postJSON(User u) {
+		return Response.ok("User created: "+u).build();
 	}
 
 	@GET
@@ -85,12 +88,6 @@ public class JaxRsTestBean {
 		CompletableFuture.supplyAsync( () -> ja, mes ).thenAccept( response::resume);
 	}
 	
-	@GET
-	@Path("xml")
-	@Produces(MediaType.APPLICATION_XML)
-	public Response userXML() {
-		return Response.ok(getUsers().get(0)).build();
-	}
 	
 	private List<User> getUsers() {
 		List<User> list = new ArrayList<>();
@@ -99,4 +96,14 @@ public class JaxRsTestBean {
 		list.add(new User("Jessica", "Marconi"));
 		return list;
 	}
+	
+	
+	@GET
+	@Path("redir")
+	@Produces(MediaType.APPLICATION_XML)
+	public Response userXML1() {
+		return Response. ok().build();
+	}
+	
+	
 }

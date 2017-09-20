@@ -1,4 +1,4 @@
-package jaxrs.parameters;
+package jaxrs.concurrency;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -37,10 +37,10 @@ public class JaxRsThreadTest {
 			e.printStackTrace();
 		}
 		
-		CompletableFuture.supplyAsync( this::checkIt ).thenAccept( resp::resume );
+		CompletableFuture.supplyAsync( this::createResponse ).thenAccept( resp::resume );
 	}
 	
-	private Response checkIt() {
+	private Response createResponse() {
 		String resTxt = "Servers Async Response: "+Thread.currentThread().getName();
 		return Response.ok(resTxt).header("HiHeader", "Hi").build();
 	}

@@ -47,9 +47,8 @@ public class JaxRsFormDataMultipart {
 	@Path("FormDataMultiPart")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	@Produces(MediaType.TEXT_PLAIN)
-	public Response postForm2(@FormDataParam("file") InputStream is, @FormDataParam("file") FormDataContentDisposition info,
+	public Response formData(@FormDataParam("file") InputStream is, @FormDataParam("file") FormDataContentDisposition info,
 			@DefaultValue("true") @FormDataParam("enabled") boolean enabled, @FormDataParam("user") User u) {
-
 		
 		String str = "Enabled: "+enabled+", file name: "+info.getFileName()+", user: "+u;
 		
@@ -61,7 +60,7 @@ public class JaxRsFormDataMultipart {
 	@GET
 	@Path("FormDataMultiPart")
 	@Produces(MediaType.MULTIPART_FORM_DATA)
-	public Response postForm3() {
+	public Response formData2() {
 		
 		FormDataMultiPart multipart = new FormDataMultiPart();
 		//FileDataBodyPart fileDataBodyPart = new FileDataBodyPart("file", new File("d:/download/alice30.txt"));
