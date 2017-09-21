@@ -9,6 +9,8 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+import jaxrs.filters.ContainerRequestFilterTest;
+import jaxrs.filters.ContainerResponseFilterTest;
 import jaxrs.multipart.file.JaxRsFileUpload;
 
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
@@ -25,6 +27,13 @@ public class JAXRSConfig extends Application {
 
         //Adding additional features. Here working with multipart/file
         resources.add(MultiPartFeature.class);
+        
+        //Filter declared with @Provider or here work for ALL resources! If you want only for particular ones use DynamicFeature
+        //Container filters need to use the @Provider annotation
+        //Or you need to make sure the class is declared in the JAX-RS Application subclass if you dont want to rely on automatic discovery.
+//        resources.add(ContainerRequestFilterTest.class);
+//        resources.add(ContainerResponseFilterTest.class);
+        
         
         return resources;
     }

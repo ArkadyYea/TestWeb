@@ -26,16 +26,9 @@ public class ServletFilterTest implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("Filters doFilter()");
-		//Abc2 newResponse = new Abc2((HttpServletResponse)response);
-		HttpServletResponseWrapper sw = new HttpServletResponseWrapper((HttpServletResponse) response) {
-	        public void setHeader(String name, String value) {
-	            if (!name.equalsIgnoreCase("Authorization")) {
-	                super.setHeader(name, value);
-	            }
-	        }
-	    };
-		chain.doFilter(request, sw);
+		System.out.println("Filters doFilter() from "+getClass().getName());
+		
+		chain.doFilter(request, response);
 	}
 
 	@Override
