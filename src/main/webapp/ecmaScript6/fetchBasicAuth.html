@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+        <title>My Test</title>
+    </head>
+    
+    <body id="body" style="font: 14px/1.4 Arial;">
+        
+        <p id="p1">Abc</p>
+        
+        <br/><br/><input id="in1" placeholder="input1"/>
+        <br/><input type="button" value="fetchFun()" onclick="fetchFun2();" />
+        
+        
+        
+        
+    </body>
+        
+    <script>
+        function fetchFun() {//Basic YXJlazphcmVr" //encoded b64 - arek:arek
+        	let headers = new Headers();
+        	headers.append('Authorization', 'Basic YXJlazphcmVr');
+        	
+            console.log("Test.fetchFun()");
+            fetch("../res/secured/secured2", {method:'GET', headers: headers, //credentials: 'user:passwd'
+                }).then(response => console.log(response));
+        }
+
+        function fetchFun2() {//Basic YXJlazphcmVr" //encoded b64 - arek:arek
+            let headers = new Headers();
+            headers.append('Authorization', 'Basic YXJlazphcmVr');
+            
+            console.log("fetchFun2()");
+            fetch("../res/secured/secured2", {headers: headers}).then(response => console.log(response));
+        }
+    </script>
+    
+</html>

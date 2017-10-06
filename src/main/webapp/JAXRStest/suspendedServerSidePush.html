@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<h3>JAX-RS Server Side Push test</h3>
+
+ 
+    <script>
+        class Events {
+            constructor() {
+            	//http://localhost:8080/TestWeb/res/threads/push
+            	
+            	let test = true;
+
+                function fet() {
+                    return fetch("../res/threads/push").then(response => {
+                    	if(response.status == 200) {
+                    		response.text().then(body => {
+                        		console.log(body);
+                        		document.write(body+'</br>')
+                        	});
+                    		fet();
+                        }
+                    })
+                        
+                }
+
+                fet();
+
+            	//fetch("../res/threads/push").then(response => response.text()).then(body => console.log(body));
+
+            	
+                /* while(test) {
+
+                	var millisecondsToWait = 1000;
+
+                	setTimeout(function() {
+                        document.write('a ');
+                	}, millisecondsToWait);
+
+                    //test = false;
+                } */
+            }
+        }
+
+        new Events();
+    </script>
+</body>
+</html>
