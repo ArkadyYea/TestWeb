@@ -33,20 +33,6 @@
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>
 
-<!--  
-    <login-config>
-        <auth-method>FORM</auth-method>
-     <form-login-config>
-       <form-login-page>/basicAuth/auth.html</form-login-page>
-       <form-error-page>/index.xhtml</form-error-page>
-     </form-login-config>
-   </login-config>
-
-<login-config>
-  <auth-method>BASIC</auth-method>
- </login-config> -->
-    
-    
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Forbidden Pattern</web-resource-name>
@@ -57,11 +43,38 @@
         </auth-constraint>
     </security-constraint>
 
+    <!-- BASIC login config -->
     <login-config>
         <auth-method>BASIC</auth-method>
         <realm-name>file-realm</realm-name>
     </login-config>    
 
+    <!-- DIGEST login config -->
+<!--     <login-config>
+        <auth-method>DIGEST</auth-method>
+        <realm-name>file-realm</realm-name>
+    </login-config>  -->
+
+    
+    <!-- FORM login config -->
+    <!-- <login-config> 
+        <auth-method>FORM</auth-method> 
+        <form-login-config> 
+            <form-login-page>/JAXRStest/formLogin.html</form-login-page> 
+            <form-error-page>/JAXRStest/formLogin.html</form-error-page> 
+        </form-login-config> 
+    </login-config> -->
+
+  
+<!--     <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+          <form-login-page>/basicAuth/auth.html</form-login-page>
+          <form-error-page>/index.xhtml</form-error-page>
+        </form-login-config>
+   </login-config> -->
+
+    
 	<security-role>
 		<role-name>Admins</role-name>
 	</security-role>

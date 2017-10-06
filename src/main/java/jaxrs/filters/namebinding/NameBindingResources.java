@@ -20,7 +20,7 @@ public class NameBindingResources {
 	@Produces(MediaType.TEXT_HTML)
 	@MyNameBinding
 	public Response nameBinding() {
-		String str = "Declare a new Annotation with @NameBinding. Decorate a filter or interceptor AND a resource with the new annotation.";
+		String str = "Declare a new Annotation adding @NameBinding. Decorate a filter or interceptor AND a resource with the new annotation.";
 		return Response.ok(str).build();
 	}
 	

@@ -7,6 +7,7 @@ public class Test {
 	
 	@TestAnnotation(quantity=123, value="abc")
 	public Test() {
+		
 		Annotation a1 = new TestAnnotationLiteral() {
 			private static final long serialVersionUID = 1L;
 			public String value() {	return "Abc"; }
@@ -20,9 +21,6 @@ public class Test {
 		checkAnnotation();
 	}
 	
-	public static void main(String[] args) {
-		new Test();
-	}
 	
 	private void checkAnnotation() {
 		System.out.println("--------- Processing Annotation -----------");
@@ -39,4 +37,8 @@ public class Test {
 		}
 	}
 	
+	
+	public static void main(String[] args) {
+		new Test();
+	}
 }

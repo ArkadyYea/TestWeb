@@ -74,8 +74,7 @@ public class RestSecured {
 	public Response killSession() {
 		String str = "<h3>Kill Session</h3>";
 		//ses.invalidate();
-		//ctx.
-		
+
 		javax.servlet.http.Cookie[] cookies = req.getCookies();
 		for(javax.servlet.http.Cookie c : cookies) {
 			if(c.getName().equals("JSESSIONID")) {

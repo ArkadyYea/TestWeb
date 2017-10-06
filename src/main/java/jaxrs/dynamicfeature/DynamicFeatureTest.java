@@ -8,8 +8,12 @@ import javax.ws.rs.ext.Provider;
 import jaxrs.filters.ContainerRequestFilterTest;
 import jaxrs.filters.ContainerRequestFilterTwo;
 import jaxrs.filters.ContainerResponseFilterTest;
+import jaxrs.filters.lifecycle.AFilterLifecycleWithException;
+import jaxrs.filters.lifecycle.FilterLifecycleResources;
 import jaxrs.interceptors.MyReaderInterceptor;
 import jaxrs.interceptors.MyWriterInterceptor;
+import jaxrs.validation.exceptions.AValidationException;
+import jaxrs.validation.exceptions.ConstraintViolationExceptions;
 
 //Works only fo -> http://localhost:8080/TestWeb/res/test -> getTest()
 
@@ -30,6 +34,8 @@ public class DynamicFeatureTest implements DynamicFeature {
 	private MyWriterInterceptor int1 = new MyWriterInterceptor();
 	private MyReaderInterceptor int2 = new MyReaderInterceptor();
 	
+	private AFilterLifecycleWithException fl = new AFilterLifecycleWithException();
+	
 	public void configure(ResourceInfo ri, FeatureContext ctx) {
     	
     	//intercepts all resources within DynamicResources.class
@@ -47,5 +53,22 @@ public class DynamicFeatureTest implements DynamicFeature {
           	ctx.register(int1);
           	ctx.register(int2);
         }
+        
+        //Registers AFilterLifecycleWithException Filter to check lifecycle of filters
+        if(ri.getResourceClass().getName().equals(FilterLifecycleResources.class.getName())) {
+        	ctx.register(fl);
+    	}
+        
+//       	if(ri.getResourceClass().getName().equals(AValidationException.class.getName())) {
+//       		System.out.println("-------------------------------------aaaaaaaaaaaaaaaaaaaaaaaaaa");
+//       		//ctx.register(ConstraintViolationExceptions.class);
+//       		ctx.register(new ConstraintViolationExceptions());
+//        }
+//       	if(ri.getResourceMethod().getName().equals("paramException") || ri.getResourceMethod().getName().equals("userException")) {
+//       		System.out.println("-------------------------------------aaaaaaaaaaaaaaaaaaaaaaaaaa");
+//       		//ctx.register(ConstraintViolationExceptions.class);
+//       		ctx.register(new ConstraintViolationExceptions());
+//        }
+       	
     }
 }

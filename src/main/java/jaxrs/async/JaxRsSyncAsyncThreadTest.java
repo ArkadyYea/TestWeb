@@ -1,4 +1,4 @@
-package jaxrs.concurrency;
+package jaxrs.async;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -10,8 +10,8 @@ import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("thread")
-public class JaxRsThreadTest {
+@Path("threads")
+public class JaxRsSyncAsyncThreadTest {
 	
 	@GET
 	@Path("sync")
@@ -30,18 +30,18 @@ public class JaxRsThreadTest {
 	@GET
 	@Path("async")
     @Produces(MediaType.TEXT_HTML)
-	public void asyncProd(@Suspended AsyncResponse resp) {
+	public void asyncProd(@Suspended AsyncResponse ar) {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		
-		CompletableFuture.supplyAsync( this::createResponse ).thenAccept( resp::resume );
+		CompletableFuture.supplyAsync( this::createResponse ).thenAccept( ar::resume );
 	}
 	
 	private Response createResponse() {
 		String resTxt = "Servers Async Response: "+Thread.currentThread().getName();
-		return Response.ok(resTxt).header("HiHeader", "Hi").build();
+		return Response.ok(resTxt).build();
 	}
 }

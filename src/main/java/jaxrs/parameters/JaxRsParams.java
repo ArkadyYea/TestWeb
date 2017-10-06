@@ -89,6 +89,7 @@ public class JaxRsParams {
 	}
 	
 	
+	//http://localhost:8080/TestWeb/res/params/form
 	@Path("form")
 	@POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)

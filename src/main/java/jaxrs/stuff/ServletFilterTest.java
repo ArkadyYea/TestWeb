@@ -21,19 +21,19 @@ public class ServletFilterTest implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		System.out.println("Filters init()");
+		System.out.println(getClass().getName()+"'s init()");
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("Filters doFilter() from "+getClass().getName());
+		System.out.println(getClass().getName()+"'s doFilter() ");
 		
 		chain.doFilter(request, response);
 	}
 
 	@Override
 	public void destroy() {
-		System.out.println("Filters destroy()");
+		System.out.println(getClass().getName()+"'s destroy()");
 	}
 
 	

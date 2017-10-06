@@ -21,7 +21,7 @@
       <dependency>
         <groupId>javax</groupId>
         <artifactId>javaee-api</artifactId>
-        <version>7.0</version>
+        <version>8.0</version>
         <scope>provided</scope>
       </dependency>
       
@@ -44,9 +44,13 @@
         <version>2.26</version>
       </dependency>
       
-    
+      <dependency>
+        <groupId>com.airhacks</groupId>
+        <artifactId>jaxrs-cors</artifactId>
+        <version>0.0.2</version>
+        <scope>compile</scope>
+      </dependency>
       
-
 <!--       Word to HTML Converter
       <dependency>
         <groupId>org.apache.poi</groupId>

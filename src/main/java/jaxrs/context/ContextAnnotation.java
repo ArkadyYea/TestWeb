@@ -29,8 +29,10 @@ import javax.ws.rs.ext.Providers;
 @Path("context")
 public class ContextAnnotation {
 	
-	@Context
-	HttpSession ses;
+	//Warning: StandardWrapperValve[jaxrs.JAXRSConfig]: Servlet.service() for servlet jaxrs.JAXRSConfig threw exception	java.lang.NullPointerException
+	//?If no session?
+//	@Context
+//	HttpSession ses;
 	
 	@Context
 	ServletContext ctx;
