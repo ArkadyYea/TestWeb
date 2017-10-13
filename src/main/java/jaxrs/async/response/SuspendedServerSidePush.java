@@ -70,6 +70,25 @@ public class SuspendedServerSidePush {
 	}
 	
 	
+	@GET
+	@Path("long")
+	//@Produces("application/json")
+	public void ytdReport(@Suspended AsyncResponse response) {
+		executor.execute( new Runnable() {
+			public void run() {
+				try {
+					Thread.sleep(10000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				//Report report = generateYTDReportFor(product);
+	            response.resume("");
+	        }
+	    });
+	}
+
+	//protected Report generateYTDReportFor(String product) {    …    }
+	
 //	@Schedule(second="*/2", minute="*", hour="*", persistent=false)
 //	public void abc() {
 //		System.out.println("Scheduler, size = "+responses.size());

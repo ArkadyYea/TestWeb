@@ -10,6 +10,8 @@
             constructor() {
             	//http://localhost:8080/TestWeb/res/threads/push
             	
+            	let test = true;
+
                 function fet() {
                     return fetch("../res/threads/push").then(response => {
                     	if(response.status == 200) {
@@ -26,6 +28,18 @@
                 fet();
 
             	//fetch("../res/threads/push").then(response => response.text()).then(body => console.log(body));
+
+            	
+                /* while(test) {
+
+                	var millisecondsToWait = 1000;
+
+                	setTimeout(function() {
+                        document.write('a ');
+                	}, millisecondsToWait);
+
+                    //test = false;
+                } */
             }
         }
 

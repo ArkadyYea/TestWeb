@@ -16,8 +16,6 @@ import jaxrs.validation.exceptions.ConstraintViolationExceptions;
 import org.glassfish.jersey.CommonProperties;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 
-import com.airhacks.cors.CorsResponseFilter;
-
 @SuppressWarnings("unused")
 @ApplicationPath("res")
 public class JAXRSConfig extends Application {

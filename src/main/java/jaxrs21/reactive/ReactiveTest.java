@@ -17,7 +17,8 @@ public class ReactiveTest {
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response react1() throws InterruptedException {
 		Thread.sleep(2000);
-		return Response.ok("Reactive 1").build();
+		String res = "Reactive-1, thread: "+Thread.currentThread().getName();
+		return Response.ok(res).build();
 	}
 	
 	@GET
@@ -25,7 +26,8 @@ public class ReactiveTest {
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response react2() throws InterruptedException {
 		Thread.sleep(2000);
-		return Response.ok("Reactive 2").build();
+		String res = "Reactive-2, thread: "+Thread.currentThread().getName();
+		return Response.ok(res).build();
 	}
 	
 }

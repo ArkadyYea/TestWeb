@@ -4,15 +4,15 @@
 
 	<h3>JAX-RS Server Sent Events test</h3>
 
- 
+    
     <script>
         class Events {
             constructor() {
                 //this.events = new EventsSource('../res/sse');
-                this.events = new EventSource('http://localhost:8080/TestWeb/res/sse');
+                this.events = new EventSource('http://localhost:8080/TestWeb/res/sse2');
                 this.events.onopen = (e) => console.log(e);
                 this.events.onmessage = (e) => console.log(e);
-                //this.events.onmessage = ({data}) => console.log(data);
+                this.events.onmessage = ({data}) => console.log(data);
             }
         }
 
