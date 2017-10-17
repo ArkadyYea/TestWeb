@@ -13,19 +13,19 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("lifecycle")
-public class ConstructorTest {
+public class ConstructorInjectionTest {
 	
-	public ConstructorTest() {
+	public ConstructorInjectionTest() {
 		System.out.println("Lifecycles constructor - no args");
 	}
 	
 	//Seems that constructors below does not work on Glassfish
 	//org.jboss.weld.exceptions.CreationException: WELD-001530: Cannot produce an instance of class jaxrs.lifecycle.ConstructorTest.
-	public ConstructorTest(@Context HttpServletRequest req) {
+	public ConstructorInjectionTest(@Context HttpServletRequest req) {
 		System.out.println("Lifecycles constructor - req");
 	}
 	
-	public ConstructorTest(@Context Application app) {
+	public ConstructorInjectionTest(@Context Application app) {
 		System.out.println("Lifecycles constructor - app");
 	}
 	

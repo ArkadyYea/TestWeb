@@ -48,5 +48,12 @@ public class Exceptions {
 			throw new ServletException("Servlet Exception");
 		return Response.ok("Abc").build();
 	}
-
+	
+	
+	@GET
+	@Path("application")
+	@Produces(MediaType.TEXT_HTML)
+	public String exceptionApp() throws ApplicationExceptionTest {
+			throw new ApplicationExceptionTest("My ApplicationExcetion thrown");
+	}
 }

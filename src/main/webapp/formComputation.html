@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+        <title>My Test</title>
+        <style></style>
+    </head>
+    
+    <body id="body" style="font: 14px/1.4 Arial;">
+        <form name="pricecalc" onsubmit="return false" onchange="calculate(this)">
+            <fieldset>
+            <legend>Work out the price of your car</legend>
+                <p>Base cost: 52000 E.</p>
+                <p>Select additional options:</p>
+                <ul>
+                    <li><label><input type=checkbox name=brakes> Ceramic brakes (1000 E)</label></li>
+                    <li><label><input type=checkbox name=radio> Satellite radio (2500 E)</label></li>
+                    <li><label><input type=checkbox name=turbo> Turbo charger (5000 E)</label></li>
+                    <li><label><input type=checkbox name=sticker> "XZ" sticker (250 E)</label></li>
+                </ul>
+                <p>Total: E<output name=result></output></p>
+            </fieldset>
+            <script>
+                calculate(document.forms.pricecalc);
+            </script>
+        </form>
+    </body>
+    
+<script>
+ function calculate(form) {
+   var price = 52000;
+   if (form.elements.brakes.checked)
+     price += 1000;
+   if (form.elements.radio.checked)
+     price += 2500;
+   if (form.elements.turbo.checked)
+     price += 5000;
+   if (form.elements.sticker.checked)
+     price += 250;
+   form.elements.result.value = price;
+ }
+</script>
+
+    
+</html>

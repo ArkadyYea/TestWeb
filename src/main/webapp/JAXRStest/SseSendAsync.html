@@ -2,8 +2,8 @@
 <html>
 <body>
 
-	<h3>JAX-RS Server Sent Events test</h3>
-	<input type="button" value="Disconnect" onclick="disconnect();"/><br/>
+    <h3>JAX-RS Server Sent Events test</h3>
+    <input type="button" value="Disconnect" onclick="disconnect();"/><br/>
     <textarea id="ta" rows="30" cols="120" ></textarea><br/>
     
     
@@ -11,7 +11,6 @@
         <input id="in" type="text" value="" name="forms_name"/><br/>
         <input type="text" value="message" name="forms_message" /><br/>
         <input type="submit" value="Send"/><br/>
-        
     </form>
     
     <script>
@@ -19,42 +18,40 @@
         let ta = document.querySelector('#ta');
         let ti = document.querySelector('#in');
         ti.value = 'User'+Math.floor((Math.random() * 10000000) + 1);
-        ta.append('Text Area Test');
         
         
         class SseEvents {
+            
             constructor() {
                 
-                ta.append('\n'+location.origin+'/TestWeb/res/sse');
+                //ta.append(location.origin+'/TestWeb/res/sse');
 
-                //this.events = new EventsSource('../res/sse');
+                //this.events = new EventsSource('../res/sse'); //NOT ok
                 //this.events = new EventSource('http://localhost:8080/TestWeb/res/sse');   //ok
                 //this.events = new EventSource('http://192.168.1.2:8080/TestWeb/res/sse'); //ok
                 this.events = new EventSource(location.origin+'/TestWeb/res/sse'); //ok
 
+                ta.append("EventSource url: "+this.events.url);
                 console.log("readyState: "+this.events.readyState);
-                console.log("url: "+this.events.url);
-
-                //The onmessage handler is called if no event name is specified for a message.
-                this.events.onopen = (e) => console.log(e);         //Used for no-name messages
                 
-                //this.events.onmessage = (e) => console.dir(e);
-                //this.events.onmessage = (e) => console.log(e);
+                this.events.onopen = (e) => console.dir(e);     //onopen handler
+                
+                //The onmessage handler is called if no event name is specified for a message.
+                this.events.onmessage = (e) => ta.append('\n'+e.data);         //Used for no-name messages
+                //this.events.onmessage = ({data}) => ta.append('\n'+data);
                 
                 //Enhanced object literals, you can omit the property value if key matches varuable name
                 //this.events.onmessage = ({data: data}) => console.log(data);
-                //this.events.onmessage = ({data}) => console.log(data);
-                this.events.onmessage = (e) => ta.append('\n'+e.data);
-
+                //this.events.onmessage = ({data}) => console.log(data);    //The same as above
                 
-                this.events.addEventListener('ServerEventName', function(e) {
-                	ta.append('\n'+e.data);
-                	console.log(e)
-                	console.log(e.data.id);
-                	console.log(e.data.comment);
+                //this.events.onmessage = (e) => console.dir(e);    //Displays an interactive list of the properties of the specified object
+                
+                this.events.addEventListener('ServerEventName', function(e) {   //named server's event
+                    ta.append('\n'+e.data);
+                    console.log(e)
+                    console.log('lastEventId: '+e.lastEventId);
                 }, false);
-                //lastEventId
-                //this.events.onmessage = ({data}) => ta.append('\n'+data);
+                
             }
         }
 

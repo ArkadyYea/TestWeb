@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response;
 //-When a request comes in, the targeted RESTful web service is resolved, and a new instance of the matching class is created.
 //-Since the life cycle is per request, the service does not have to worry about CONCURRENCY and can use instance variables safely.
 @Path("lifecycle")
-public class TestMethods {
+public class LifeCycleIsPerRequestByDefault {
 	
 	private int counter = 0;
 	

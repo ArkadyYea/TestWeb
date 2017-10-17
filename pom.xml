@@ -57,6 +57,13 @@
         <scope>compile</scope>
       </dependency>
       
+      <!-- JSON-B -->
+      <dependency>
+        <groupId>org.eclipse</groupId>
+        <artifactId>yasson</artifactId>
+        <version>1.0</version>
+      </dependency>
+      
 <!--       Word to HTML Converter
       <dependency>
         <groupId>org.apache.poi</groupId>
