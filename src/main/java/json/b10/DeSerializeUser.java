@@ -6,9 +6,9 @@ import javax.json.bind.JsonbBuilder;
 import abc.User;
 
 //
-public class DeSerializeTest {
+public class DeSerializeUser {
 	
-	public DeSerializeTest() {
+	public DeSerializeUser() {
 		
 		User user = new User("John","Smith");
 		
@@ -25,6 +25,6 @@ public class DeSerializeTest {
 	
 	
 	public static void main(String[] args) {
-		new DeSerializeTest();
+		new DeSerializeUser();
 	}
 }
